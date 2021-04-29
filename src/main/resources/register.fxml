@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.FontWeight?>
+<AnchorPane prefHeight="535.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smart.banking.controllers.RegistrationController">
+    <children>
+        <AnchorPane layoutX="14.0" layoutY="145.0" prefHeight="293.0" prefWidth="305.0">
+            <children>
+                <ImageView fitHeight="528.0" fitWidth="384.0" layoutX="-16.0" layoutY="-146.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@register-background.jpg" />
+                    </image>
+                </ImageView>
+                <Button layoutX="5.0" layoutY="103.0" onAction="#handleRegisterAction" text="Register">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font></Button>
+                <HBox alignment="bottom_right" layoutX="18.0" layoutY="261.0" prefHeight="16.0" prefWidth="87.0" spacing="10" />
+
+                <Text fx:id="registrationMessage" fill="#FFFFFF" layoutX="200.0" layoutY="10.0" wrappingWidth="87.0" />
+
+                <ChoiceBox fx:id="role" layoutX="-4.0" layoutY="59.0" prefWidth="150.0">
+                </ChoiceBox>
+
+                <Label layoutX="8.0" layoutY="24.0" prefHeight="35.0" prefWidth="51.0" text="Role:" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font></Label>
+
+                <TextField fx:id="usernameField" layoutX="-2.0" layoutY="-73.0" />
+
+                <Label layoutX="6.0" layoutY="-37.0" text="Password:" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+
+                <Label layoutX="4.0" layoutY="-98.0" text="Username:" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+
+                <PasswordField fx:id="passwordField" layoutX="-2.0" layoutY="-1.0" />
+            </children>
+        </AnchorPane>
+        <Text id="title-text" fill="WHITE" layoutX="80.0" layoutY="32.0" smooth="false" text="Smart-Banking">
+            <font>
+                <Font name="System Bold" size="26.0" />
+            </font>
+            <effect>
+                <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="40.0" surfaceScale="0.0">
+                    <bumpInput>
+                        <Glow>
+                            <input>
+                                <Glow />
+                            </input>
+                        </Glow>
+                    </bumpInput>
+                    <light>
+                        <Light.Distant azimuth="19.88" elevation="65.93" />
+                    </light>
+                </Lighting>
+            </effect>
+        </Text>
+    </children>
+</AnchorPane>
