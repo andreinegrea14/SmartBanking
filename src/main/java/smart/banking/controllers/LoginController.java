@@ -40,6 +40,10 @@ public class LoginController {
             loginMessage.setText("Please introduce an username!");
             return;
         }
+        if(passwordInput.getText() == null || passwordInput.getText().isEmpty()){
+            loginMessage.setText("Please introduce a password!");
+            return ;
+        }
         if(UserService.checkUsers(usernameInput.getText(),passwordInput.getText())==1)
         { ClientController.openClientScreen();
         return;}
