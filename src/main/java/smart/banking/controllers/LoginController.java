@@ -36,6 +36,10 @@ public class LoginController {
         window.show();
     }
     public void login() throws Exception {
+        if(usernameInput.getText() == null || usernameInput.getText().isEmpty()) {
+            loginMessage.setText("Please introduce an username!");
+            return;
+        }
         if(UserService.checkUsers(usernameInput.getText(),passwordInput.getText())==1)
         { ClientController.openClientScreen();
         return;}

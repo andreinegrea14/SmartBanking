@@ -39,7 +39,8 @@
                       <Font name="Corbel" size="40.0" />
                   </font>
               </Label>
-              <Label layoutX="102.0" layoutY="111.0" text="username : ">
+                <Text fx:id="loginMessage" fill="#FFFFFF" layoutX="130.0" layoutY="270.0" wrappingWidth="87.0" />
+                <Label layoutX="102.0" layoutY="111.0" text="username : ">
                   <font>
                       <Font size="15.0" />
                   </font>
