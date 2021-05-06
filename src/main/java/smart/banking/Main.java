@@ -13,12 +13,13 @@ import java.nio.file.Path;
 
 public class Main extends Application {
 
-
+    public static Stage stg;
     @Override
     public void start(Stage primaryStage) throws Exception {
+       this.stg=primaryStage;
         initDirectory();
         UserService.initDatabase();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
         primaryStage.setTitle("Smart-Banking");
         primaryStage.setScene(new Scene(root, 360, 525));
         primaryStage.show();
