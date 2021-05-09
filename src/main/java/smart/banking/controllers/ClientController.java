@@ -50,4 +50,15 @@ public class ClientController {
         }
     }
 
+    public void handleLogout() throws IOException {
+        Parent loginWindow = FXMLLoader.load(ClientController.class.getResource("/login.fxml"));
+        Scene loginScene = new Scene(loginWindow, 360, 525);
+        Stage window = new Stage();
+        window.setScene(loginScene);
+        window.setTitle("Login");
+        window.show();
+        ClientController.stg.close();
+    }
+
+
 }

@@ -33,6 +33,11 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
+             <Button layoutX="460.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="45.0" prefWidth="113.0" text="Logout">
+                 <font>
+                     <Font size="21.0" />
+                 </font>
+             </Button>
             <Button layoutX="215.0" layoutY="177.0" mnemonicParsing="false" onAction="#register" text="Check balance">
                <font>
                   <Font name="System Bold" size="18.0" />
