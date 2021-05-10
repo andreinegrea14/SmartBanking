@@ -17,38 +17,38 @@
     <children>
         <Pane prefHeight="400.0" prefWidth="28.0" style="-fx-background-color: #993399;" />
         <Pane layoutY="-7.0" prefHeight="407.0" prefWidth="608.0" style="-fx-background-color: #84baec;">
-         <children>
-              <Button layoutX="216.0" layoutY="124.0" mnemonicParsing="false" onAction="#register" text="Transfer funds">
-                  <font>
-                      <Font name="System Bold" size="18.0" />
-                  </font>
-              </Button>
-            <Button layoutX="216.0" layoutY="296.0" mnemonicParsing="false" onAction="#register" text="Request bank support">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="216.0" layoutY="236.0" mnemonicParsing="false" onAction="#register" text="See transactions">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-             <Button layoutX="460.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="45.0" prefWidth="113.0" text="Logout">
-                 <font>
-                     <Font size="21.0" />
-                 </font>
-             </Button>
-            <Button layoutX="215.0" layoutY="177.0" mnemonicParsing="false" onAction="#register" text="Check balance">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-              <Text layoutX="178.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client Menu">
-                  <font>
-                      <Font name="System Bold Italic" size="42.0" />
-                  </font>
-              </Text>
-         </children></Pane>
+            <children>
+                <Button layoutX="216.0" layoutY="124.0" mnemonicParsing="false" onAction="#openCheckBalance" text="Check balance">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button layoutX="216.0" layoutY="296.0" mnemonicParsing="false" onAction="#register" text="Request bank support">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button layoutX="216.0" layoutY="236.0" mnemonicParsing="false" onAction="#register" text="See transactions">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button layoutX="460.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="45.0" prefWidth="113.0" text="Logout">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
+                <Button layoutX="215.0" layoutY="177.0" mnemonicParsing="false" onAction="#register" text="Transfer funds">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Text layoutX="178.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client Menu">
+                    <font>
+                        <Font name="System Bold Italic" size="42.0" />
+                    </font>
+                </Text>
+            </children></Pane>
         <Text fx:id="registerMessage" layoutX="213.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0">
             <font>
                 <Font size="14.0" />

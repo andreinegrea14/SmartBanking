@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import smart.banking.services.ClientService;
 import smart.banking.services.UserService;
 import smart.banking.Main;
 import java.io.IOException;
@@ -23,28 +24,21 @@ public class ClientController {
     private Text registerMessage;
 
     public static void openClientScreen() throws IOException {
-
         Parent adminWindow = FXMLLoader.load(ClientController.class.getResource("/client.fxml"));
-
         Scene adminScene = new Scene(adminWindow);
-
         Stage window = new Stage();
-
         window.setScene(adminScene);
         window.setTitle("Client Panel");
         window.show();
         stg=window;
         Main.stg.close();
-
-
-
     }
 
     public void register() throws UsernameAlreadyExists {
         try {
             UserService.addUser(usernameInput.getText(), passwordInput.getText(), "Client");
             registerMessage.setText("Account created successfully!");
-        }catch(UsernameAlreadyExists e)
+        } catch(UsernameAlreadyExists e)
         {
             registerMessage.setText(e.getMessage());
         }
@@ -60,5 +54,13 @@ public class ClientController {
         ClientController.stg.close();
     }
 
-
+    public void openCheckBalance() throws IOException {
+        Parent adminWindow = FXMLLoader.load(ClientController.class.getResource("/checkBalance.fxml"));
+        Scene adminScene = new Scene(adminWindow);
+        Stage window = new Stage();
+        window.setScene(adminScene);
+        window.setTitle("Check Balance");
+        window.show();
+        ClientController.stg.close();
+    }
 }
