@@ -3,7 +3,6 @@ package smart.banking.services;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
-import smart.banking.controllers.ClientController;
 import smart.banking.exceptions.UsernameAlreadyExists;
 import smart.banking.model.User;
 
@@ -13,23 +12,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Objects;
 
-//import admin.AdminController;
-//import customer.CustomerController;
-//import exceptions.CouldNotWriteOrderException;
-//import exceptions.CouldNotWriteUsersException;
-//import exceptions.UsernameAlreadyExistsException;
-//import model.Order;
-//import model.OrderStatus;
-//import model.ProductToOrder;
-//import model.User;
-//import org.apache.commons.io.FileUtils;
-//import store.StoreController;
-
-
-import java.io.IOException;
-import java.nio.file.Path;
-
-import javax.swing.*;
 
 
 import static smart.banking.services.FileSystemService.getPathToFile;
@@ -65,9 +47,8 @@ public class UserService {
 
         byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));
 
-        // This is the way a password should be encoded when checking the credentials
         return new String(hashedPassword, StandardCharsets.UTF_8)
-                .replace("\"", ""); //to be able to save in JSON format
+                .replace("\"", "");
     }
 
     private static MessageDigest getMessageDigest() {
@@ -81,39 +62,7 @@ public class UserService {
     }
 
     public static int checkUsers(String username,String password) {
-       /* int i = 0;
-        for (User user : users) {
-            if (!Objects.equals(username, user.getUsername()))
-                i++;
-        }
-        if (i == users.size()) {
-            JOptionPane.showMessageDialog(null, "Wrong credentials");
-        } else {
-            for (User user : userRepository.find()) {
-                if (Objects.equals(username, user.getUsername())) {
-                    if (Objects.equals(user.getPassword(), encodePassword(username, password))) {
-                        if (Objects.equals(role, user.getRole())) {
-                            if (Objects.equals(role, "Client")) {
-                                ClientController.openClientScreen();
-                            } else if (Objects.equals(role, "Bank Representative")) {
-                                {
-//                                    AdminController.openAdminPanel();
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Wrong credentials");
-                            }
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Wrong credentials");
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Wrong credentials");
-                    }
-                }
-            }
-
-        }
-    }
-*/for (User user : userRepository.find()) {
+        for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername())
                     && Objects.equals(encodePassword(username, password), user.getPassword())
                     && Objects.equals("Client", user.getRole()))

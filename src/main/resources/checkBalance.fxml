@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="smart.banking.controllers.CheckBalanceController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <Pane prefHeight="400.0" prefWidth="28.0" style="-fx-background-color: #993399;" />
+        <Pane layoutY="-7.0" prefHeight="407.0" prefWidth="608.0" style="-fx-background-color: #84baec;">
+            <children>
+
+                <TextField fx:id="fundsField" layoutX="102.0" layoutY="141.0" />
+                <Button layoutX="216.0" layoutY="236.0" mnemonicParsing="false" onAction="#FundsToBeAdded" text="Add funds">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+
+                <Button layoutX="460.0" layoutY="34.0" mnemonicParsing="false" onAction="#cancel" prefHeight="45.0" prefWidth="113.0" text="Go back">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
+                <!--                <TextField fx:id="usernameField" layoutX="-2.0" layoutY="-73.0" />-->
+                <Text layoutX="150.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Balance">
+                    <font>
+                        <Font name="System Bold Italic" size="42.0" />
+                    </font>
+                </Text>
+            </children></Pane>
+        <Text fx:id="clientMessage" layoutX="213.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Text fx:id="totalAmount" layoutX="220.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+
+    </children>
+
+</AnchorPane>
