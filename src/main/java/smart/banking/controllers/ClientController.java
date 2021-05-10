@@ -73,4 +73,14 @@ public class ClientController {
         window.show();
         ClientController.stg.close();
     }
+
+    public void requestSupport() throws IOException {
+        Parent adminWindow = FXMLLoader.load(ClientController.class.getResource("/requestSupport.fxml"));
+        Scene adminScene = new Scene(adminWindow);
+        Stage window = new Stage();
+        window.setScene(adminScene);
+        window.setTitle("Request Support");
+        window.show();
+        ClientController.stg.close();
+    }
 }
