@@ -5,12 +5,12 @@ import org.dizitart.no2.objects.Id;
 public class Client {
     @Id
     private String username;
-    private int funds;
+    private double funds;
     public Client() {
 
     }
 
-    public void setFunds(int funds) {
+    public void setFunds(double funds) {
         this.funds = funds;
     }
 
@@ -21,15 +21,18 @@ public class Client {
     public Client (String username ){
         this.username = username;
     }
-    public Client(String username, int funds){
+    public Client(String username, double funds){
         this.username = username;
         this.funds = funds;
     }
-    public void addFunds(int funds){
+    public void addFunds(double funds){
         this.funds = this.funds + funds;
     }
+    public void extractFunds(double funds){
+        this.funds = this.funds - funds;
+    }
 
-    public int getFunds(){
+    public double getFunds(){
         return funds;
     }
 

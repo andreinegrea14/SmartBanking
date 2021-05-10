@@ -4,12 +4,14 @@ import smart.banking.model.Client;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import java.util.Objects;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import static smart.banking.services.FileSystemService.getPathToFile2;
 
 public class ClientService {
 
     private static ObjectRepository<Client> clientObjectRepository;
-
+    private static DecimalFormat formatTwoDecimals = new DecimalFormat("#.##");
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile2("clienti.db").toFile())
@@ -18,7 +20,7 @@ public class ClientService {
         clientObjectRepository = database.getRepository(Client.class);
     }
 
-    public static void addClient(String username, int funds) throws UniqueConstraintException {
+    public static void addClient(String username, double funds) throws UniqueConstraintException {
         try {
             clientObjectRepository.insert(new Client(username, funds));
         } catch(UniqueConstraintException e) {
@@ -26,7 +28,7 @@ public class ClientService {
         }
     }
 
-    public static void addFunds(String username, int funds) {
+    public static void addFunds(String username, double funds) {
         for (Client client : clientObjectRepository.find()) {
             if (username.equals(client.getUsername())) {
                 client.addFunds(funds);
@@ -35,10 +37,20 @@ public class ClientService {
         }
     }
 
-    public static int getFunds(String username) {
+    public static void extractFunds(String username, double funds) {
         for (Client client : clientObjectRepository.find()) {
             if (username.equals(client.getUsername())) {
-                return client.getFunds();
+                client.extractFunds(funds);
+                clientObjectRepository.update(client);
+            }
+        }
+    }
+
+    public static double getFunds(String username) {
+        formatTwoDecimals.setRoundingMode(RoundingMode.DOWN);
+        for (Client client : clientObjectRepository.find()) {
+            if (username.equals(client.getUsername())) {
+                return Double.parseDouble(formatTwoDecimals.format(client.getFunds()));
             }
         }
         return 0;
