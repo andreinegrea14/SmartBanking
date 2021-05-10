@@ -4,12 +4,14 @@ import smart.banking.model.Client;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import java.util.Objects;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import static smart.banking.services.FileSystemService.getPathToFile2;
 
 public class ClientService {
 
     private static ObjectRepository<Client> clientObjectRepository;
-
+    private static DecimalFormat formatTwoDecimals = new DecimalFormat("#.##");
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile2("clienti.db").toFile())
@@ -35,10 +37,20 @@ public class ClientService {
         }
     }
 
-    public static double getFunds(String username) {
+    public static void extractFunds(String username, double funds) {
         for (Client client : clientObjectRepository.find()) {
             if (username.equals(client.getUsername())) {
-                return client.getFunds();
+                client.extractFunds(funds);
+                clientObjectRepository.update(client);
+            }
+        }
+    }
+
+    public static double getFunds(String username) {
+        formatTwoDecimals.setRoundingMode(RoundingMode.DOWN);
+        for (Client client : clientObjectRepository.find()) {
+            if (username.equals(client.getUsername())) {
+                return Double.parseDouble(formatTwoDecimals.format(client.getFunds()));
             }
         }
         return 0;

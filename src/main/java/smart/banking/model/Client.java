@@ -28,6 +28,9 @@ public class Client {
     public void addFunds(double funds){
         this.funds = this.funds + funds;
     }
+    public void extractFunds(double funds){
+        this.funds = this.funds - funds;
+    }
 
     public double getFunds(){
         return funds;

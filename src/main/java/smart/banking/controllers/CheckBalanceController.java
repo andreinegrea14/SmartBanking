@@ -22,7 +22,7 @@ public class CheckBalanceController {
     public void FundsToBeAdded() throws NumberFormatException{
         try {
             if (fundsField.getText() == null || fundsField.getText().isEmpty() || Double.parseDouble(fundsField.getText()) == 0) {
-                clientMessage.setText("Total amount: " +String.valueOf(ClientService.getFunds(LoginController.client)));
+                clientMessage.setText("Total amount: " +String.valueOf(ClientService.getFunds(LoginController.client)) + " lei");
                 return;
             }
         }
@@ -30,8 +30,8 @@ public class CheckBalanceController {
             clientMessage.setText(ex.getMessage());
         }
         ClientService.addFunds(LoginController.client, Double.parseDouble(fundsField.getText()));
-        clientMessage.setText("Set new funds: " + String.valueOf(fundsField.getText()));
-        totalAmount.setText("Total funds: " + String.valueOf(ClientService.getFunds(LoginController.client)));
+        clientMessage.setText("Set new funds: " + String.valueOf(fundsField.getText()) + " lei");
+        totalAmount.setText("Total funds: " + String.valueOf(ClientService.getFunds(LoginController.client)) + " lei");
     }
 
     public void cancel() throws IOException {
