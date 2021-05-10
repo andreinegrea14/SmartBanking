@@ -63,4 +63,14 @@ public class ClientController {
         window.show();
         ClientController.stg.close();
     }
+
+    public void transferFundsOnPress() throws IOException {
+        Parent adminWindow = FXMLLoader.load(ClientController.class.getResource("/transferFunds.fxml"));
+        Scene adminScene = new Scene(adminWindow);
+        Stage window = new Stage();
+        window.setScene(adminScene);
+        window.setTitle("Transfer Funds");
+        window.show();
+        ClientController.stg.close();
+    }
 }

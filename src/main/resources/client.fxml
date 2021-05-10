@@ -38,7 +38,7 @@
                         <Font size="21.0" />
                     </font>
                 </Button>
-                <Button layoutX="215.0" layoutY="177.0" mnemonicParsing="false" onAction="#register" text="Transfer funds">
+                <Button layoutX="215.0" layoutY="177.0" mnemonicParsing="false" onAction="#transferFundsOnPress" text="Transfer funds">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
