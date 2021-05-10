@@ -18,7 +18,7 @@ public class ClientService {
         clientObjectRepository = database.getRepository(Client.class);
     }
 
-    public static void addClient(String username, int funds) throws UniqueConstraintException {
+    public static void addClient(String username, double funds) throws UniqueConstraintException {
         try {
             clientObjectRepository.insert(new Client(username, funds));
         } catch(UniqueConstraintException e) {
@@ -26,7 +26,7 @@ public class ClientService {
         }
     }
 
-    public static void addFunds(String username, int funds) {
+    public static void addFunds(String username, double funds) {
         for (Client client : clientObjectRepository.find()) {
             if (username.equals(client.getUsername())) {
                 client.addFunds(funds);
@@ -35,7 +35,7 @@ public class ClientService {
         }
     }
 
-    public static int getFunds(String username) {
+    public static double getFunds(String username) {
         for (Client client : clientObjectRepository.find()) {
             if (username.equals(client.getUsername())) {
                 return client.getFunds();

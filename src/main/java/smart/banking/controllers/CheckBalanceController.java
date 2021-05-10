@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import smart.banking.services.ClientService;
 import javafx.scene.control.TextField;
 import java.io.IOException;
-import java.lang.Integer;
+import java.lang.Double;
 
 public class CheckBalanceController {
     @FXML
@@ -21,7 +21,7 @@ public class CheckBalanceController {
     @FXML
     public void FundsToBeAdded() throws NumberFormatException{
         try {
-            if (fundsField.getText() == null || fundsField.getText().isEmpty() || Integer.parseInt(fundsField.getText()) == 0) {
+            if (fundsField.getText() == null || fundsField.getText().isEmpty() || Double.parseDouble(fundsField.getText()) == 0) {
                 clientMessage.setText("Total amount: " +String.valueOf(ClientService.getFunds(LoginController.client)));
                 return;
             }
@@ -29,7 +29,7 @@ public class CheckBalanceController {
         catch(NumberFormatException ex){
             clientMessage.setText(ex.getMessage());
         }
-        ClientService.addFunds(LoginController.client, Integer.parseInt(fundsField.getText()));
+        ClientService.addFunds(LoginController.client, Double.parseDouble(fundsField.getText()));
         clientMessage.setText("Set new funds: " + String.valueOf(fundsField.getText()));
         totalAmount.setText("Total funds: " + String.valueOf(ClientService.getFunds(LoginController.client)));
     }

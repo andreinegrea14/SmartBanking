@@ -11,6 +11,7 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import smart.banking.services.ClientService;
 import java.lang.Integer;
+import java.lang.Double;
 
 public class TransferFundsController {
     @FXML
@@ -38,8 +39,19 @@ public class TransferFundsController {
         window.show();
         ClientController.stg.close();
     }
+    public double convertCurrency(double funds, String currency){
+        if (currency.equals("EURO")) {
+            return 4.93 * funds;
+        } else if (currency.equals("USD")) {
+            return 4.06 * funds;
+        }
+        return funds;
+    }
+    public void transfer() throws IOException {
+        ClientService.addFunds(username.getText(), convertCurrency(Double.parseDouble((funds.getText())), currency.getValue().toString()));
+    }
     public void verifyFunds() throws Exception {
-        if (funds.getText() == null || funds.getText().isEmpty() || Integer.parseInt(funds.getText()) == 0) {
+        if (funds.getText() == null || funds.getText().isEmpty() ||Double.parseDouble(funds.getText()) == 0) {
             verifyFundsMessage.setText("Insuficient funds!");
             return;
         }
@@ -51,6 +63,7 @@ public class TransferFundsController {
             verifyFundsMessage.setText("Please select currency type!");
             return;
         }
+        transfer();
         verifyFundsMessage.setText("Transfer successed!");
     }
 
