@@ -24,7 +24,7 @@
                     </font>
                 </Button>
 
-                <Button layoutX="460.0" layoutY="34.0" mnemonicParsing="false" onAction="#cancel" prefHeight="45.0" prefWidth="113.0" text="Go back">
+                <Button layoutX="460.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="45.0" prefWidth="113.0" text="Go back">
                     <font>
                         <Font size="21.0" />
                     </font>

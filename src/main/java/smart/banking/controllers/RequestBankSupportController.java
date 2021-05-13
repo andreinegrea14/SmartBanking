@@ -1,7 +1,9 @@
 package smart.banking.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -15,14 +17,13 @@ public class RequestBankSupportController {
     @FXML
     private TextField message;
     @FXML
-    public void goBack() throws IOException {
+    public void goBack(ActionEvent event) throws IOException {
         Parent adminWindow = FXMLLoader.load(ClientController.class.getResource("/client.fxml"));
         Scene adminScene = new Scene(adminWindow);
-        Stage window = new Stage();
+        Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
         window.setScene(adminScene);
         window.setTitle("Client Menu");
         window.show();
-        ClientController.stg.close();
     }
 
 }

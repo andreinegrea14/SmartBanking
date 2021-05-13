@@ -1,5 +1,7 @@
 package smart.banking.controllers;
 
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import smart.banking.exceptions.UsernameAlreadyExists;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,43 +46,55 @@ public class ClientController {
         }
     }
 
-    public void handleLogout() throws IOException {
-        Parent loginWindow = FXMLLoader.load(ClientController.class.getResource("/login.fxml"));
-        Scene loginScene = new Scene(loginWindow, 360, 525);
-        Stage window = new Stage();
+    public void handleLogout(ActionEvent event) throws IOException {
+
+
+        Parent loginWindow = FXMLLoader.load(CheckBalanceController.class.getResource("/login.fxml"));
+        Scene loginScene = new Scene(loginWindow,360, 525);
+
+        Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
         window.setScene(loginScene);
-        window.setTitle("Login");
         window.show();
-        ClientController.stg.close();
+
     }
 
-    public void openCheckBalance() throws IOException {
-        Parent adminWindow = FXMLLoader.load(ClientController.class.getResource("/checkBalance.fxml"));
+
+
+    public void openCheckBalance(ActionEvent event) throws IOException {
+        Parent adminWindow = FXMLLoader.load(ClientController.class.getResource("/checkbalance.fxml"));
         Scene adminScene = new Scene(adminWindow);
-        Stage window = new Stage();
+        Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
         window.setScene(adminScene);
         window.setTitle("Check Balance");
         window.show();
-        ClientController.stg.close();
     }
 
-    public void transferFundsOnPress() throws IOException {
+    public void transferFundsOnPress(ActionEvent event) throws IOException {
         Parent adminWindow = FXMLLoader.load(ClientController.class.getResource("/transferFunds.fxml"));
         Scene adminScene = new Scene(adminWindow);
-        Stage window = new Stage();
+        Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
         window.setScene(adminScene);
         window.setTitle("Transfer Funds");
         window.show();
-        ClientController.stg.close();
+
     }
 
-    public void requestSupport() throws IOException {
+    public void requestSupport(ActionEvent event) throws IOException {
         Parent adminWindow = FXMLLoader.load(ClientController.class.getResource("/requestSupport.fxml"));
         Scene adminScene = new Scene(adminWindow);
-        Stage window = new Stage();
+        Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
         window.setScene(adminScene);
         window.setTitle("Request Support");
         window.show();
-        ClientController.stg.close();
+
+    }
+    public void seeTransactions(ActionEvent event) throws IOException {
+        Parent adminWindow = FXMLLoader.load(ClientController.class.getResource("/seeTransactions.fxml"));
+        Scene adminScene = new Scene(adminWindow);
+        Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
+        window.setScene(adminScene);
+        window.setTitle("List of all transactions");
+        window.show();
+
     }
 }
