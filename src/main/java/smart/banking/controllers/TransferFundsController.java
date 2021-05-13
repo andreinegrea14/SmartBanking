@@ -51,6 +51,8 @@ public class TransferFundsController {
     public void transfer() throws IOException {
         ClientService.addFunds(username.getText(), convertCurrency(Double.parseDouble((funds.getText())), currency.getValue().toString()));
         ClientService.extractFunds(LoginController.client, convertCurrency(Double.parseDouble((funds.getText())), currency.getValue().toString()));
+        ClientService.addTransaction(LoginController.client, convertCurrency(Double.parseDouble((funds.getText())), currency.getValue().toString()), username.getText(), 1);
+        ClientService.addTransaction(username.getText(), convertCurrency(Double.parseDouble((funds.getText())), currency.getValue().toString()), LoginController.client, 2);
     }
     public void verifyFunds() throws Exception {
         if (funds.getText() == null || funds.getText().isEmpty() || Double.parseDouble(funds.getText()) == 0 || convertCurrency(Double.parseDouble(funds.getText()), currency.getValue().toString()) > ClientService.getFunds(LoginController.client)) {

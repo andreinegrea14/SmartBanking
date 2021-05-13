@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smart.banking.controllers.SeeTransactionsController">
+    <children>
+        <Pane prefHeight="400.0" prefWidth="28.0" style="-fx-background-color: #993399;" />
+        <Pane prefHeight="400.0" prefWidth="606.0" style="-fx-background-color: #84baec;">
+            <children>
+                <ListView fx:id="transactionList" layoutX="-1.0" layoutY="-1.0" prefHeight="407.0" prefWidth="211.0" />
+                <Button layoutX="14.0" layoutY="356.0" mnemonicParsing="false" onAction="#goBack" prefHeight="0.0" prefWidth="109.0" text="Go back">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <ListView fx:id="userList" layoutX="421.0" layoutY="-1.0" prefHeight="407.0" prefWidth="181.0" />
+                <ListView fx:id="status" layoutX="210.0" layoutY="-1.0" prefHeight="407.0" prefWidth="211.0" />
+            </children></Pane>
+    </children>
+</AnchorPane>
