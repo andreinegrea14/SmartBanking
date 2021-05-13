@@ -1,6 +1,8 @@
 package smart.banking.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
@@ -30,14 +32,13 @@ public class TransferFundsController {
         currency.getItems().addAll("EURO", "RON", "USD");
     }
 
-    public void goBack() throws IOException {
+    public void goBack(ActionEvent event) throws IOException {
         Parent adminWindow = FXMLLoader.load(ClientController.class.getResource("/client.fxml"));
         Scene adminScene = new Scene(adminWindow);
-        Stage window = new Stage();
+        Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
         window.setScene(adminScene);
         window.setTitle("Client Menu");
         window.show();
-        ClientController.stg.close();
     }
     public double convertCurrency(double funds, String currency){
         if (currency.equals("EURO")) {

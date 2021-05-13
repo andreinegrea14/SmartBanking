@@ -1,7 +1,9 @@
 package smart.banking.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
@@ -11,6 +13,9 @@ import javafx.stage.Stage;
 import smart.banking.services.ClientService;
 import smart.banking.services.UserService;
 import javafx.scene.text.Text;
+
+import java.io.IOException;
+
 public class LoginController {
     public static Stage stg;
     @FXML
@@ -24,10 +29,10 @@ public class LoginController {
     public static String client;
 
 
-    public void openRegister() throws Exception {
-        Parent registerWindow = FXMLLoader.load(getClass().getResource("/register.fxml"));
-        Scene registerScene = new Scene(registerWindow);
-        Stage window = new Stage();
+    public void openRegister(ActionEvent event) throws IOException {
+        Parent registerWindow = FXMLLoader.load(ClientController.class.getResource("/register.fxml"));
+        Scene registerScene = new Scene(registerWindow,360, 525);
+        Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
         window.setScene(registerScene);
         window.setTitle("Register");
         window.show();

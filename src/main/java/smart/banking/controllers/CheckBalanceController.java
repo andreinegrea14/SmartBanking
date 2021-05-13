@@ -1,7 +1,9 @@
 package smart.banking.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
@@ -19,6 +21,17 @@ public class CheckBalanceController {
     @FXML
     private Text totalAmount;
     @FXML
+    public void handleCloseButtonAction(ActionEvent event) throws IOException {
+
+
+        Parent loginWindow = FXMLLoader.load(CheckBalanceController.class.getResource("/client.fxml"));
+        Scene loginScene = new Scene(loginWindow);
+        Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
+        window.setScene(loginScene);
+        window.setTitle("Client Menu");
+        window.show();
+
+    }
     public void FundsToBeAdded() throws NumberFormatException{
         try {
             if (fundsField.getText() == null || fundsField.getText().isEmpty() || Double.parseDouble(fundsField.getText()) == 0) {
@@ -32,15 +45,5 @@ public class CheckBalanceController {
         ClientService.addFunds(LoginController.client, Double.parseDouble(fundsField.getText()));
         clientMessage.setText("Set new funds: " + String.valueOf(fundsField.getText()) + " lei");
         totalAmount.setText("Total funds: " + String.valueOf(ClientService.getFunds(LoginController.client)) + " lei");
-    }
-
-    public void cancel() throws IOException {
-        Parent loginWindow = FXMLLoader.load(ClientController.class.getResource("/client.fxml"));
-        Scene loginScene = new Scene(loginWindow);
-        Stage window = new Stage();
-        window.setScene(loginScene);
-        window.setTitle("Client Menu");
-        window.show();
-        ClientController.stg.close();
     }
 }
