@@ -48,8 +48,6 @@ public class RequestBankSupportController {
         window.setScene(adminScene);
         window.setTitle("List of Client Requests");
         window.show();
-
-//        ListofClientRequestsController.showMessages();
     }
 
 }

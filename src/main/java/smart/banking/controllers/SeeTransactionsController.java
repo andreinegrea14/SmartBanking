@@ -56,7 +56,6 @@ public class SeeTransactionsController {
 
             }
         }
-        System.out.println(Arrays.toString(ClientService.getClient(LoginController.client).getTransaction()));
     }
 
     public void showUsers() {
