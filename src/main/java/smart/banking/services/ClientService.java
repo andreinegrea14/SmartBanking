@@ -62,6 +62,41 @@ public class ClientService {
                 return client;
             }
         return new Client("Username");
+    }
+    public static void addTransaction(String username, double funds, String otherClient, int status) {
+        for (Client client : clientObjectRepository.find()) {
+            if (username.equals(client.getUsername())) {
+                client.addTransaction(funds);
+                client.addUserTransaction(otherClient);
+                client.sendReceivedOrSend(status);
+                clientObjectRepository.update(client);
+            }
+        }
+    }
+    public static int getTransactionsContor(String username) {
+        for (Client client : clientObjectRepository.find()) {
+            if (username.equals(client.getUsername())) {
+                return client.getTransactionsContor();
+            }
+        }
+        return 0;
+    }
+    public static int getUserTransactionContor(String username) {
+        for (Client client : clientObjectRepository.find()) {
+            if (username.equals(client.getUsername())) {
+                return client.getUserTransactionContor();
+            }
+        }
+        return 0;
+
+    }
+    public static int getSendOrReceivedContor(String username) {
+        for (Client client : clientObjectRepository.find()) {
+            if (username.equals(client.getUsername())) {
+                return client.getReceivedOrSentContor();
+            }
+        }
+        return 0;
 
     }
 }

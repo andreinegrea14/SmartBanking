@@ -28,7 +28,7 @@
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Button>
-                <Button layoutX="216.0" layoutY="236.0" mnemonicParsing="false" onAction="#register" text="See transactions">
+                <Button layoutX="216.0" layoutY="236.0" mnemonicParsing="false" onAction="#seeTransactions" text="See transactions">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
