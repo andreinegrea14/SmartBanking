@@ -9,9 +9,64 @@ public class Client {
     private String[] transaction = new String[100];
     private String[] userTransaction = new String[100];
     private int[] rs = new int[100];
+    private int[] status = new int[100];
     private int transactions = 0;
     private int userTransactionContor = 0;
     private int receivedOrSentContor = 0;
+    private int contor = 0;
+    private int statusContor = 0;
+    private String[] messages = new String[100];
+
+    public void setContor(int contor) {
+        this.contor = contor;
+    }
+
+    public void setStatus(int[] status) {
+        this.status = status;
+    }
+
+    public void setStatusContor(int statusContor) {
+        this.statusContor = statusContor;
+    }
+    public int getStatusContor() {
+        return statusContor;
+    }
+    public void sendStatus(int statusProvided) {
+        if(statusContor == status.length){
+            int[] aux = new int[status.length + 10];
+            for(int i=0; i < status.length; i++){
+                aux[i]=status[i];
+            }
+            status=aux;
+
+        }
+        this.status[statusContor++] = statusProvided;
+    }
+    public int[] getStatus() {
+        return status;
+    }
+    public void setMessages(String[] messages) {
+        this.messages = messages;
+    }
+
+    public int getContor() {
+        return contor;
+    }
+    public String[] getMessages() {
+        return messages;
+    }
+
+    public void sendMessage(String message1) {
+        if(contor == messages.length){
+            String[] aux = new String[messages.length + 10];
+            for(int i=0; i < messages.length; i++){
+                aux[i]=messages[i];
+            }
+            messages=aux;
+
+        }
+        this.messages[contor++] = message1;
+    }
     public Client() {
 
     }

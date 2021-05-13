@@ -14,7 +14,7 @@ public class ClientService {
     private static DecimalFormat formatTwoDecimals = new DecimalFormat("#.##");
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile2("clienti.db").toFile())
+                .filePath(getPathToFile2("clienti2.db").toFile())
                 .openOrCreate("test", "test");
 
         clientObjectRepository = database.getRepository(Client.class);
@@ -54,7 +54,25 @@ public class ClientService {
             }
         }
         return 0;
+    }
 
+    public static void sendMessage(String username, String message) {
+        for (Client client : clientObjectRepository.find()) {
+            if (username.equals(client.getUsername())) {
+                client.sendMessage(message);
+                client.sendStatus(0);
+                clientObjectRepository.update(client);
+            }
+        }
+    }
+
+    public static int getContor(String username) {
+        for (Client client : clientObjectRepository.find()) {
+            if (username.equals(client.getUsername())) {
+                return client.getContor();
+            }
+        }
+        return 0;
     }
     public static Client getClient(String username){
         for (Client client : clientObjectRepository.find())

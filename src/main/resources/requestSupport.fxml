@@ -23,7 +23,7 @@
         <Pane prefHeight="400.0" prefWidth="28.0" style="-fx-background-color: #993399;" />
         <Pane layoutY="-7.0" prefHeight="407.0" prefWidth="608.0" style="-fx-background-color: #84baec;">
             <children>
-                <Button layoutX="399.0" layoutY="121.0" mnemonicParsing="false" onAction="#goBack" text="See all requests">
+                <Button layoutX="399.0" layoutY="121.0" mnemonicParsing="false" onAction="#openListMenu" text="See all requests">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
@@ -34,16 +34,16 @@
                         <Font name="System Bold Italic" size="42.0" />
                     </font>
                 </Text>
-                <Button layoutX="43.0" layoutY="277.0" mnemonicParsing="false" onAction="#goBack" prefHeight="45.0" prefWidth="170.0" text="Send request">
+                <Button layoutX="43.0" layoutY="277.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="45.0" prefWidth="170.0" text="Send request">
                     <font>
                         <Font size="21.0" />
                     </font>
                 </Button>
-            <Button layoutX="445.0" layoutY="322.0" mnemonicParsing="false" onAction="#goBack" prefHeight="39.0" prefWidth="120.0" text="Go back">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Button>
+                <Button layoutX="445.0" layoutY="322.0" mnemonicParsing="false" onAction="#goBack" prefHeight="39.0" prefWidth="120.0" text="Go back">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
             </children></Pane>
         <Text fx:id="registerMessage" layoutX="213.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0">
             <font>
