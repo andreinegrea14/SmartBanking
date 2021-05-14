@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import smart.banking.services.BankRepresentativeService;
 import smart.banking.services.ClientService;
 
 import javax.validation.Valid;
@@ -20,11 +21,14 @@ public class ListofClientRequestsController {
     @FXML
     private ListView status;
     @FXML
+    private ListView review;
+    @FXML
     private String statusMessage;
     @FXML
     public void initialize() {
         showMessages();
         showStatus();
+        showReviews();
     }
 
     public void showMessages() {
@@ -39,6 +43,18 @@ public class ListofClientRequestsController {
         }
     }
 
+    public void showReviews() {
+        review.getItems().add("");
+        review.getItems().add("Review");
+        for (int i = 0; i < ClientService.getContor(LoginController.client); i++) {
+            if (ClientService.getClient(LoginController.client).getReviews()[i] == null) {
+                review.getItems().add("No review yet");
+            } else {
+                review.getItems().add(ClientService.getClient(LoginController.client).getReviews()[i]);
+            }
+        }
+    }
+
     public void showStatus() {
         status.getItems().add("");
         status.getItems().add("Status");
@@ -46,8 +62,17 @@ public class ListofClientRequestsController {
             if (ClientService.getClient(LoginController.client).getMessages()[i] == null) {
                 listMessage.getItems();
             } else {
-                if (ClientService.getClient(LoginController.client).getStatus()[i] == 0) {
+                if (ClientService.getClient(LoginController.client).getStatusReview()[i] == null) {
                     statusMessage = "PENDING";
+                    status.getItems().add(statusMessage);
+                } else if (ClientService.getClient(LoginController.client).getStatusReview()[i].equals("Accepted")) {
+                    statusMessage = "ACCEPTED";
+                    status.getItems().add(statusMessage);
+                } else if (ClientService.getClient(LoginController.client).getStatusReview()[i].equals("Rejected")) {
+                    statusMessage = "REJECTED";
+                    status.getItems().add(statusMessage);
+                } else {
+                    statusMessage = "";
                     status.getItems().add(statusMessage);
                 }
             }
