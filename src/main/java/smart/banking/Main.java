@@ -25,7 +25,7 @@ public class Main extends Application {
         BankRepresentativeService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
         primaryStage.setTitle("Smart-Banking");
-        primaryStage.setScene(new Scene(root, 360, 525));
+        primaryStage.setScene(new Scene(root, 600, 525));
         primaryStage.show();
     }
 

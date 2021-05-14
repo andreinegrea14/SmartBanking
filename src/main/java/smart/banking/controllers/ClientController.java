@@ -50,7 +50,7 @@ public class ClientController {
 
 
         Parent loginWindow = FXMLLoader.load(CheckBalanceController.class.getResource("/login.fxml"));
-        Scene loginScene = new Scene(loginWindow,360, 525);
+        Scene loginScene = new Scene(loginWindow,600, 525);
 
         Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
         window.setScene(loginScene);
