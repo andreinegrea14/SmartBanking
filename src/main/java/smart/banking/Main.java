@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import smart.banking.services.BankRepresentativeService;
 import smart.banking.services.ClientService;
 import smart.banking.services.FileSystemService;
 import smart.banking.services.UserService;
@@ -21,6 +22,7 @@ public class Main extends Application {
         initDirectory();
         UserService.initDatabase();
         ClientService.initDatabase();
+        BankRepresentativeService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
         primaryStage.setTitle("Smart-Banking");
         primaryStage.setScene(new Scene(root, 360, 525));

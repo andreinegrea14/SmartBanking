@@ -10,6 +10,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
+import smart.banking.model.Client;
+import smart.banking.services.BankRepresentativeService;
 import smart.banking.services.ClientService;
 import smart.banking.services.UserService;
 import javafx.scene.text.Text;
@@ -27,7 +29,8 @@ public class LoginController {
 
     @FXML
     public static String client;
-
+    @FXML
+    public static String bankRepresentative;
 
     public void openRegister(ActionEvent event) throws IOException {
         Parent registerWindow = FXMLLoader.load(ClientController.class.getResource("/register.fxml"));
@@ -51,11 +54,16 @@ public class LoginController {
             LoginController.client=usernameInput.getText();
             if (LoginController.client.equals(ClientService.getClient(LoginController.client).getUsername()) == false) {
                 ClientService.addClient(LoginController.client, 0);
+                ClientService.addClient(LoginController.client);
+                BankRepresentativeService.addClient(usernameInput.getText());
             }
             return;}
         if(UserService.checkUsers(usernameInput.getText(),passwordInput.getText())==2)
         { BankRepresentativeController.openBankRepresentativeScreen();
-            LoginController.client=usernameInput.getText();
+            LoginController.bankRepresentative=usernameInput.getText();
+            if (LoginController.bankRepresentative.equals(BankRepresentativeService.getBankRepresentative(LoginController.bankRepresentative).getUsername()) == false) {
+                BankRepresentativeService.addBankRepresentative(LoginController.bankRepresentative);
+            }
             return;}
 
         loginMessage.setText("Incorrect login!");
