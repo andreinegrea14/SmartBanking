@@ -18,6 +18,43 @@ public class Client {
     private String[] messages = new String[100];
     private String[] clients = new String[100];
     private int contorClients = 0;
+    private String[] reviews = new String[100];
+    private int reviewsContor = 0;
+    private String[] statusReviews = new String[100];
+    private int statusReviewsContor = 0;
+
+
+    public void sendReview(String review, int index) {
+        if(reviewsContor == reviews.length){
+            String[] aux = new String[reviews.length + 10];
+            for(int i=0; i < reviews.length; i++){
+                aux[i]=reviews[i];
+            }
+            reviews=aux;
+
+        }
+        reviewsContor++;
+        this.reviews[index] = review;
+    }
+    public int getReviewsContor() {
+        return reviewsContor;
+    }
+    public int getStatusReviewsContor() {
+        return statusReviewsContor;
+    }
+    public void sendReviewStatus(String status, int index) {
+        if(statusReviewsContor == statusReviews.length){
+            String[] aux = new String[statusReviews.length + 10];
+            for(int i=0; i < statusReviews.length; i++){
+                aux[i]=statusReviews[i];
+            }
+            statusReviews=aux;
+
+        }
+        statusReviewsContor++;
+        this.statusReviews[index] = status;
+    }
+
     public void setContor(int contor) {
         this.contor = contor;
     }
