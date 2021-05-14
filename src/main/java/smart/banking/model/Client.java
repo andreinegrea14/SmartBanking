@@ -22,7 +22,9 @@ public class Client {
     private int reviewsContor = 0;
     private String[] statusReviews = new String[100];
     private int statusReviewsContor = 0;
-
+    public void setContor(int contor) {
+        this.contor = contor;
+    }
 
     public void sendReview(String review, int index) {
         if(reviewsContor == reviews.length){
@@ -55,10 +57,6 @@ public class Client {
         this.statusReviews[index] = status;
     }
 
-    public void setContor(int contor) {
-        this.contor = contor;
-    }
-
     public int getContorClients() {
         return contorClients;
     }
@@ -80,6 +78,7 @@ public class Client {
         }
         this.clients[contorClients++] = username;
     }
+
     public void setStatus(int[] status) {
         this.status = status;
     }
@@ -89,6 +88,12 @@ public class Client {
     }
     public int getStatusContor() {
         return statusContor;
+    }
+    public String[] getStatusReview() {
+        return statusReviews;
+    }
+    public String[] getReviews() {
+        return reviews;
     }
     public void sendStatus(int statusProvided) {
         if(statusContor == status.length){
@@ -126,6 +131,7 @@ public class Client {
         }
         this.messages[contor++] = message1;
     }
+
     public Client() {
 
     }
