@@ -33,7 +33,15 @@ public class ClientService {
             return client.getContorClients();
         }
         return 0;
-
+    }
+    public static void sendReviews(String clientName, String review, String status, int index) {
+        for (Client client : clientObjectRepository.find()) {
+            if (clientName.equals(client.getUsername())) {
+                client.sendReview(review, index);
+                client.sendReviewStatus(status, index);
+                clientObjectRepository.update(client);
+            }
+        }
     }
 
     public static void addClient(String username) {

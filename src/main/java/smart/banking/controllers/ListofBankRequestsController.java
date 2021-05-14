@@ -18,6 +18,10 @@ public class ListofBankRequestsController {
     @FXML
     private ListView messages;
     @FXML
+    public static String clientName;
+    @FXML
+    public static int requestIndex;
+    @FXML
 
     public void initialize() {
         showClients();
