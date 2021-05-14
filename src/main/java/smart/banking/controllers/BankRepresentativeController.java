@@ -55,7 +55,7 @@ public class BankRepresentativeController {
 
     public void handleLogout() throws IOException {
         Parent loginWindow = FXMLLoader.load(ClientController.class.getResource("/login.fxml"));
-        Scene loginScene = new Scene(loginWindow, 360, 525);
+        Scene loginScene = new Scene(loginWindow, 600, 525);
         Stage window = new Stage();
         window.setScene(loginScene);
         window.setTitle("Login");
@@ -73,8 +73,5 @@ public class BankRepresentativeController {
         window.show();
 
     }
-
-
-
 
 }

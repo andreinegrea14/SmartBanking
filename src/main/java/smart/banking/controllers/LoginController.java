@@ -34,7 +34,7 @@ public class LoginController {
 
     public void openRegister(ActionEvent event) throws IOException {
         Parent registerWindow = FXMLLoader.load(ClientController.class.getResource("/register.fxml"));
-        Scene registerScene = new Scene(registerWindow,360, 525);
+        Scene registerScene = new Scene(registerWindow,600, 525);
         Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
         window.setScene(registerScene);
         window.setTitle("Register");
@@ -66,7 +66,7 @@ public class LoginController {
             }
             return;}
 
-        loginMessage.setText("Incorrect login!");
+        loginMessage.setText("Incorrect login! Please try again.");
     }
 
 }

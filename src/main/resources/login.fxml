@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.canvas.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -13,58 +16,97 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.image.*?>
 
-
-
 <AnchorPane prefHeight="552.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smart.banking.controllers.LoginController">
     <children>
-        <AnchorPane prefHeight="552.0" prefWidth="453.0">
+        <AnchorPane prefHeight="552.0" prefWidth="396.0">
             <children>
-                <ImageView fitHeight="552.0" fitWidth="399.0" pickOnBounds="true">
+                <ImageView fitHeight="552.0" fitWidth="627.0" pickOnBounds="true">
                     <image>
-                        <Image url="@login-background.jpg" />
+                        <Image url="@register.jpg" />
                     </image>
                 </ImageView>
-                <Label contentDisplay="TOP" layoutX="50.0" prefHeight="48.0" prefWidth="349.0" text="Smart Banking">
+                <Label contentDisplay="TOP" layoutX="139.0" layoutY="25.0" prefHeight="48.0" prefWidth="349.0" text="Smart Banking" textFill="WHITE">
                     <font>
                         <Font name="Cambria Bold" size="40.0" />
                     </font>
                 </Label>
-                <Button layoutX="106.0" layoutY="459.0" mnemonicParsing="false" onAction="#openRegister" prefHeight="45.0" prefWidth="113.0" text="Register">
+                <Button layoutX="50.0" layoutY="459.0" mnemonicParsing="false" onAction="#openRegister" opacity="0.74" prefHeight="39.0" prefWidth="134.0" text="Register">
                     <font>
                         <Font size="21.0" />
                     </font>
+                    <effect>
+                        <InnerShadow choke="0.24" color="#0c0d54" height="41.76" radius="18.8975" width="35.83" />
+                    </effect>
                 </Button>
-              <Label layoutX="102.0" layoutY="63.0" text="Log in">
-                  <font>
-                      <Font name="Corbel" size="40.0" />
-                  </font>
-              </Label>
-                <Text fx:id="loginMessage" fill="#FFFFFF" layoutX="130.0" layoutY="270.0" wrappingWidth="87.0" />
-                <Label layoutX="102.0" layoutY="111.0" text="username : ">
-                  <font>
-                      <Font size="15.0" />
-                  </font>
-              </Label>
-              <TextField fx:id="usernameInput" layoutX="102.0" layoutY="141.0" />
-              <Label layoutX="103.0" layoutY="174.0" text="password : ">
-                  <font>
-                      <Font size="15.0" />
-                  </font>
-              </Label>
-              <PasswordField fx:id="passwordInput" layoutX="102.0" layoutY="202.0" />
+                <Label layoutX="230.0" layoutY="94.0" prefHeight="23.0" prefWidth="134.0" text="User log in" textFill="#f2f2f2">
+                    <font>
+                        <Font name="Corbel Bold" size="25.0" />
+                    </font>
+                </Label>
+                <Text fx:id="loginMessage" fill="WHITE" layoutX="117.0" layoutY="292.0" wrappingWidth="290.0">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font></Text>
+                <Label layoutX="117.0" layoutY="134.0" text="username : " textFill="#eee2e2">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="usernameInput" layoutX="117.0" layoutY="168.0" opacity="0.63">
+                    <effect>
+                        <InnerShadow choke="0.08" color="#010236" height="29.9" radius="27.052500000000002" width="80.31" />
+                    </effect></TextField>
+                <Label layoutX="118.0" layoutY="212.0" text="password : " textFill="#eeecec">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="passwordInput" layoutX="117.0" layoutY="243.0" opacity="0.57">
+                    <effect>
+                        <InnerShadow choke="0.16" color="#080b40" height="32.86" radius="24.085" width="65.48" />
+                    </effect></PasswordField>
 
 
 
-                <Button layoutX="102.0" layoutY="319.0" mnemonicParsing="false" onAction="#login" prefHeight="56.0" prefWidth="102.0" text="Log in">
+                <Button layoutX="365.0" layoutY="195.0" mnemonicParsing="false" onAction="#login" opacity="0.74" prefHeight="39.0" prefWidth="114.0" text="Log in">
                     <font>
                         <Font size="18.0" />
                     </font>
-              </Button>
-            <Label layoutX="106.0" layoutY="421.0" text="Don't you have an account?">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
+                    <effect>
+                        <InnerShadow choke="0.15" color="#0c135b" height="26.93" radius="16.6725" width="41.76" />
+                    </effect>
+                </Button>
+                <Label layoutX="48.0" layoutY="389.0" text="Don't you have an account?" textFill="#f8f5f5">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="56.0" fitWidth="49.0" layoutX="56.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@user.png" />
+                    </image>
+                    <effect>
+                        <Reflection />
+                    </effect>
+                </ImageView>
+                <ImageView fitHeight="90.0" fitWidth="43.0" layoutX="59.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@key_96px.png" />
+                    </image>
+                    <effect>
+                        <Reflection />
+                    </effect>
+                </ImageView>
+                <Label layoutX="48.0" layoutY="421.0" prefHeight="17.0" prefWidth="122.0" text="Register now!" textFill="#f8f7f7">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <PointLight color="CHARTREUSE">
+                    <effect>
+                        <SepiaTone />
+                    </effect>
+                </PointLight>
             </children>
         </AnchorPane>
     </children>

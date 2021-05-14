@@ -28,6 +28,7 @@ public class RegistrationController {
     @FXML
     private ChoiceBox role;
 
+
     @FXML
     public void initialize() {
         role.getItems().addAll("Client", "Bank Representative");
@@ -44,7 +45,7 @@ public class RegistrationController {
     }
     public void goBack(ActionEvent event) throws IOException {
         Parent loginWindow = FXMLLoader.load(CheckBalanceController.class.getResource("/login.fxml"));
-        Scene loginScene = new Scene(loginWindow, 360, 525);
+        Scene loginScene = new Scene(loginWindow, 600, 525);
         Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
         window.setScene(loginScene);
         window.setTitle("Login");
