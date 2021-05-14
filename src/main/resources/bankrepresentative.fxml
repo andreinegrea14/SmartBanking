@@ -18,21 +18,21 @@
         <Pane prefHeight="400.0" prefWidth="28.0" style="-fx-background-color: #993399;" />
         <Pane layoutY="-7.0" prefHeight="407.0" prefWidth="608.0" style="-fx-background-color: #84baec;">
             <children>
-                <Button layoutX="177.0" layoutY="184.0" mnemonicParsing="false" onAction="#register" text="See a list of all requests">
+                <Button layoutX="177.0" layoutY="184.0" mnemonicParsing="false" onAction="#openListofRequests" text="See a list of all requests">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Button>
-              <Text layoutX="39.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Representative Menu">
-                  <font>
-                      <Font name="System Bold Italic" size="42.0" />
-                  </font>
-              </Text>
-              <Button layoutX="434.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="39.0" prefWidth="120.0" text="Logout">
-                  <font>
-                      <Font size="21.0" />
-                  </font>
-              </Button>
+                <Text layoutX="39.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Representative Menu">
+                    <font>
+                        <Font name="System Bold Italic" size="42.0" />
+                    </font>
+                </Text>
+                <Button layoutX="434.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="39.0" prefWidth="120.0" text="Logout">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Button>
             </children></Pane>
         <Text fx:id="registerMessage" layoutX="213.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0">
             <font>

@@ -1,5 +1,7 @@
 package smart.banking.controllers;
 
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import smart.banking.exceptions.UsernameAlreadyExists;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import smart.banking.model.User;
 import smart.banking.services.UserService;
 import smart.banking.Main;
 import java.io.IOException;
@@ -59,5 +62,19 @@ public class BankRepresentativeController {
         window.show();
         BankRepresentativeController.stg.close();
     }
+
+
+    public void openListofRequests(ActionEvent event) throws IOException {
+        Parent adminWindow = FXMLLoader.load(BankRepresentativeController.class.getResource("/listofBankRequests.fxml"));
+        Scene adminScene = new Scene(adminWindow);
+        Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
+        window.setScene(adminScene);
+        window.setTitle("List of requests");
+        window.show();
+
+    }
+
+
+
 
 }

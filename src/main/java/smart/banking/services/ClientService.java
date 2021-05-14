@@ -14,7 +14,7 @@ public class ClientService {
     private static DecimalFormat formatTwoDecimals = new DecimalFormat("#.##");
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile2("clienti2.db").toFile())
+                .filePath(getPathToFile2("clienti3.db").toFile())
                 .openOrCreate("test", "test");
 
         clientObjectRepository = database.getRepository(Client.class);
@@ -25,6 +25,23 @@ public class ClientService {
             clientObjectRepository.insert(new Client(username, funds));
         } catch(UniqueConstraintException e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public static int getContorClient() {
+        for (Client client : clientObjectRepository.find()) {
+            return client.getContorClients();
+        }
+        return 0;
+
+    }
+
+    public static void addClient(String username) {
+        for (Client client : clientObjectRepository.find()) {
+            if (username.equals(client.getUsername())) {
+                client.addClients(username);
+                clientObjectRepository.update(client);
+            }
         }
     }
 

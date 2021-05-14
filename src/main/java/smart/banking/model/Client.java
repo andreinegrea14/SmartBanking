@@ -16,11 +16,33 @@ public class Client {
     private int contor = 0;
     private int statusContor = 0;
     private String[] messages = new String[100];
-
+    private String[] clients = new String[100];
+    private int contorClients = 0;
     public void setContor(int contor) {
         this.contor = contor;
     }
 
+    public int getContorClients() {
+        return contorClients;
+    }
+    public void setContorClients(int contorClients) {
+        this.contorClients = contorClients;
+    }
+    public void setClients(String[] clienti) {
+        this.clients = clienti;
+    }
+
+    public void addClients(String username) {
+        if(contorClients == clients.length){
+            String[] aux = new String[clients.length + 10];
+            for(int i=0; i < clients.length; i++){
+                aux[i]=clients[i];
+            }
+            clients=aux;
+
+        }
+        this.clients[contorClients++] = username;
+    }
     public void setStatus(int[] status) {
         this.status = status;
     }
