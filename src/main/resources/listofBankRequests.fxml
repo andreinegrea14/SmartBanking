@@ -14,13 +14,15 @@
         <Pane layoutY="-7.0" prefHeight="407.0" prefWidth="608.0" style="-fx-background-color: #84baec;">
             <children>
 
-                <ListView fx:id="clientList" layoutX="-1.0" layoutY="-1.0" onMouseClicked="#showMessages" prefHeight="407.0" prefWidth="153.0" />
+                <ListView fx:id="clientList" layoutY="-1.0" onMouseClicked="#showMessagesStatusesAndReviews" prefHeight="407.0" prefWidth="119.0" />
                 <Button layoutX="14.0" layoutY="356.0" mnemonicParsing="false" onAction="#goBack" prefHeight="0.0" prefWidth="109.0" text="Go back">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <ListView fx:id="messages" layoutX="151.0" layoutY="-1.0" prefHeight="407.0" prefWidth="458.0" />
+                <ListView fx:id="messages" layoutX="118.0" layoutY="-1.0" prefHeight="407.0" prefWidth="299.0" onMouseClicked="#showButton"/>
+                <ListView fx:id="statusList" layoutX="417.0" prefHeight="407.0" prefWidth="96.0" />
+                <ListView fx:id="reviewList" layoutX="513.0"  prefHeight="407.0" prefWidth="96.0" />
             </children></Pane>
     </children>
 </AnchorPane>

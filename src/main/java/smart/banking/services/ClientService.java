@@ -1,5 +1,6 @@
 package smart.banking.services;
 import org.dizitart.no2.exceptions.UniqueConstraintException;
+import smart.banking.model.BankRepresentative;
 import smart.banking.model.Client;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
@@ -33,15 +34,7 @@ public class ClientService {
             return client.getContorClients();
         }
         return 0;
-    }
-    public static void sendReviews(String clientName, String review, String status, int index) {
-        for (Client client : clientObjectRepository.find()) {
-            if (clientName.equals(client.getUsername())) {
-                client.sendReview(review, index);
-                client.sendReviewStatus(status, index);
-                clientObjectRepository.update(client);
-            }
-        }
+
     }
 
     public static void addClient(String username) {
@@ -86,6 +79,15 @@ public class ClientService {
             if (username.equals(client.getUsername())) {
                 client.sendMessage(message);
                 client.sendStatus(0);
+                clientObjectRepository.update(client);
+            }
+        }
+    }
+    public static void sendReviews(String clientName, String review, String status, int index) {
+        for (Client client : clientObjectRepository.find()) {
+            if (clientName.equals(client.getUsername())) {
+                client.sendReview(review, index);
+                client.sendReviewStatus(status, index);
                 clientObjectRepository.update(client);
             }
         }
