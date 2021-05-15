@@ -1,0 +1,34 @@
+* {
+    -fx-primary: #ffffff;
+}
+
+.pane_1 {
+    -fx-background-color: #AED6F1;
+}
+.pane_2 {
+    -fx-background-color: #f2e9ca;
+}
+.button {
+    -fx-background-color: #AED6F1;
+}
+.root_pane {
+    -fx-border-radius: 30%;
+    -fx-background-radius: 30%;
+}
+.button_1:hover, .button_1:focused {
+    -fx-border-color: wheat;
+    -fx-text-fill: -fx-primary;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+}
+.text-field {
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-color: #F003A5;
+}
+.text-field-support {
+    -fx-background-color: #f2e9ca;
+}
+.listview1{
+    -fx-control-inner-background: #f2e9ca;
+}
