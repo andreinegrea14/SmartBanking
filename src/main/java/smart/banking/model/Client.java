@@ -116,7 +116,12 @@ public class Client {
     public int getContor() {
         return contor;
     }
-    public String[] getMessages() {
+    public String[] getMessages() throws ArrayIndexOutOfBoundsException {
+        try {
+            return messages;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+        }
         return messages;
     }
 

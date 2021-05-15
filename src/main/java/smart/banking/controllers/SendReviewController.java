@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import smart.banking.model.Client;
 import smart.banking.services.BankRepresentativeService;
@@ -23,6 +24,8 @@ public class SendReviewController {
     @FXML
     private TextField sendReview;
     @FXML
+    private Text errorMessage;
+    @FXML
     public void initialize() {
         review.getItems().addAll("Accepted", "Rejected");
     }
@@ -30,9 +33,8 @@ public class SendReviewController {
 
     public void sendOnPress(ActionEvent event) throws IOException {
         if(review.getValue() == null || review.getValue().toString().isEmpty()){
-            goBack(event);
-        }
-        else {
+            errorMessage.setText("Please select a request status!");
+        } else {
             ClientService.sendReviews(ListofBankRequestsController.clientName, sendReview.getText(), review.getValue().toString(), ListofBankRequestsController.requestIndex);
             goBack(event);
         }
@@ -47,5 +49,14 @@ public class SendReviewController {
         window.show();
     }
 
+    public void handleCloseButtonAction(ActionEvent event) throws IOException {
+        Parent loginWindow = FXMLLoader.load(CheckBalanceController.class.getResource("/login.fxml"));
+        Scene loginScene = new Scene(loginWindow, 600, 525);
+        Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
+        window.setScene(loginScene);
+        window.setTitle("Login");
+        window.show();
+
+    }
 
 }

@@ -1,43 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="588.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smart.banking.controllers.BankRepresentativeController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smart.banking.controllers.BankRepresentativeController">
     <children>
-        <Pane prefHeight="400.0" prefWidth="28.0" style="-fx-background-color: #993399;" />
-        <Pane layoutY="-7.0" prefHeight="407.0" prefWidth="608.0" style="-fx-background-color: #84baec;">
+        <VBox prefHeight="600.0" prefWidth="186.0" styleClass="pane_1" stylesheets="@style.css">
             <children>
-                <Button layoutX="177.0" layoutY="184.0" mnemonicParsing="false" onAction="#openListofRequests" text="See a list of all requests">
+                <JFXButton prefHeight="61.0" prefWidth="177.0" text="Smart Banking" textFill="#f5f5f5">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="Consolas Bold" size="18.0" />
                     </font>
-                </Button>
-                <Text layoutX="39.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Representative Menu">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </JFXButton>
+                <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="70.0" onAction="#openListofRequests" prefHeight="0.0" prefWidth="177.0" styleClass="button_1" stylesheets="@style.css" text="Requests list" textFill="#f5f5f5">
                     <font>
-                        <Font name="System Bold Italic" size="42.0" />
+                        <Font name="Consolas Bold" size="14.0" />
                     </font>
-                </Text>
-                <Button layoutX="434.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="39.0" prefWidth="120.0" text="Logout">
+                    <graphic>
+                        <ImageView fitHeight="62.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@view_details_64px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </JFXButton>
+                <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#handleLogout" prefHeight="101.0" prefWidth="173.0" styleClass="button_1" stylesheets="@style.css" text="Logout" textFill="#f5f5f5">
                     <font>
-                        <Font size="21.0" />
+                        <Font name="Consolas Bold" size="14.0" />
                     </font>
-                </Button>
-            </children></Pane>
-        <Text fx:id="registerMessage" layoutX="213.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Text>
+                    <graphic>
+                        <ImageView fitHeight="64.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@logout_rounded_left_64px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+               <VBox.margin>
+                  <Insets top="300.0" />
+               </VBox.margin>
+                </JFXButton>
+            </children>
+        </VBox>
+        <Pane fx:id="root" prefHeight="600.0" prefWidth="718.0" styleClass="pane_2" stylesheets="@style.css">
+            <children>
+                <!--            <JFXButton alignment="BOTTOM_CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="425.0" layoutY="119.0" onMouseClicked="#ctrl_playmusic" prefHeight="65.0" prefWidth="70.0" styleClass="button_1" stylesheets="@style.css" text="Study Courses" textFill="#f5f5f5">-->
+                <!--               <font>-->
+                <!--                  <Font name="Consolas Bold" size="14.0" />-->
+                <!--               </font>-->
+                <!--            </JFXButton>-->
+                <ImageView fitHeight="395.0" fitWidth="543.0" layoutX="128.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@client.jpg" />
+                    </image>
+                </ImageView>
+                <Label layoutX="128.0" layoutY="22.0" prefHeight="48.0" prefWidth="393.0" text="Welcome to your dashboard!" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="26.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
     </children>
-</AnchorPane>
+</HBox>

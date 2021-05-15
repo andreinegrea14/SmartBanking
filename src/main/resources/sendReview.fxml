@@ -1,27 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smart.banking.controllers.SendReviewController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smart.banking.controllers.SendReviewController">
+
     <children>
-        <Pane prefHeight="400.0" prefWidth="28.0" style="-fx-background-color: #993399;" />
-        <Pane layoutY="-7.0" prefHeight="407.0" prefWidth="608.0" style="-fx-background-color: #84baec;">
+        <VBox prefHeight="600.0" prefWidth="186.0" styleClass="pane_1" stylesheets="@style.css">
             <children>
-                <Text layoutX="143.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send Review">
+                <JFXButton prefHeight="61.0" prefWidth="177.0" text="Smart Banking" textFill="#f5f5f5">
                     <font>
-                        <Font name="System Bold Italic" size="42.0" />
+                        <Font name="Consolas Bold" size="18.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </JFXButton>
+                <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="70.0" onAction="#goBack" prefHeight="0.0" prefWidth="177.0" styleClass="button_1" stylesheets="@style.css" text="Requests list" textFill="#f5f5f5">
+                    <font>
+                        <Font name="Consolas Bold" size="14.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="62.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@view_details_64px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </JFXButton>
+
+
+                <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#handleCloseButtonAction" prefHeight="101.0" prefWidth="173.0" styleClass="button_1" stylesheets="@style.css" text="Logout" textFill="#f5f5f5">
+                    <font>
+                        <Font name="Consolas Bold" size="14.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="64.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@logout_rounded_left_64px.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+            </children>
+        </VBox>
+        <Pane fx:id="root" prefHeight="600.0" prefWidth="718.0" styleClass="pane_2" stylesheets="@style.css">
+            <children>
+                <ImageView fitHeight="343.0" fitWidth="483.0" layoutX="173.0" layoutY="257.0" opacity="0.76" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@client.jpg" />
+                    </image>
+                </ImageView>
+                <Text layoutX="41.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send Review" wrappingWidth="176.0">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
                     </font>
                 </Text>
-                <TextField fx:id="sendReview" layoutX="35.0" layoutY="100.0" prefHeight="134.0" prefWidth="539.0" />
-                <Label layoutX="35.0" layoutY="234.0" prefHeight="35.0" prefWidth="109.0" text="Review status" textFill="WHITE">
+                <TextField fx:id="sendReview" layoutX="35.0" layoutY="100.0" prefHeight="134.0" prefWidth="539.0" styleClass="text-field-support" stylesheets="@style.css" />
+                <Label layoutX="24.0" layoutY="245.0" prefHeight="35.0" prefWidth="109.0" text="Review status" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <ChoiceBox fx:id="review" layoutX="35.0" layoutY="280.0" opacity="0.43" prefHeight="25.0" prefWidth="176.0">
+                <Button layoutX="24.0" layoutY="325.0" mnemonicParsing="false" onAction="#sendOnPress" opacity="0.7" prefHeight="25.0" prefWidth="131.0" text="Send review" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Text fx:id="errorMessage" fill="WHITE" layoutX="217.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="344.5703125">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Text>
+                <ChoiceBox fx:id="review" layoutX="24.0" layoutY="280.0" opacity="0.73" prefHeight="25.0" prefWidth="176.0">
                     <effect>
                         <Glow>
                             <input>
@@ -29,11 +95,8 @@
                             </input>
                         </Glow>
                     </effect></ChoiceBox>
-                <Button layoutX="433.0" layoutY="341.0" mnemonicParsing="false" onAction="#sendOnPress" prefHeight="0.0" prefWidth="109.0" text="Send">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Button>
-            </children></Pane>
+
+            </children>
+        </Pane>
     </children>
-</AnchorPane>
+</HBox>
