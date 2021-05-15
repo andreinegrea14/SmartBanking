@@ -30,7 +30,10 @@
                     </effect></Button>
                 <HBox alignment="bottom_right" layoutX="18.0" layoutY="261.0" prefHeight="16.0" prefWidth="87.0" spacing="10" />
 
-                <Text fx:id="registrationMessage" fill="#FFFFFF" layoutX="200.0" layoutY="10.0" wrappingWidth="87.0" />
+                <Text fx:id="registrationMessage" fill="#FFFFFF" layoutX="244.0" layoutY="43.0" wrappingWidth="268.0">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
 
                 <ChoiceBox fx:id="role" layoutX="53.0" layoutY="138.0" opacity="0.63" prefHeight="25.0" prefWidth="176.0">
                     <effect>

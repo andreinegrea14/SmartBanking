@@ -30,7 +30,7 @@
                         <Font name="Cambria Bold" size="40.0" />
                     </font>
                 </Label>
-                <Button layoutX="50.0" layoutY="459.0" mnemonicParsing="false" onAction="#openRegister" opacity="0.74" prefHeight="39.0" prefWidth="134.0" text="Register">
+                <Button layoutX="38.0" layoutY="465.0" mnemonicParsing="false" onAction="#openRegister" opacity="0.74" prefHeight="39.0" prefWidth="134.0" text="Register">
                     <font>
                         <Font size="21.0" />
                     </font>
@@ -76,7 +76,15 @@
                         <InnerShadow choke="0.15" color="#0c135b" height="26.93" radius="16.6725" width="41.76" />
                     </effect>
                 </Button>
-                <Label layoutX="48.0" layoutY="389.0" text="Don't you have an account?" textFill="#f8f5f5">
+                <Button layoutX="117.0" layoutY="331.0" mnemonicParsing="false" onAction="#openChangePassword" opacity="0.74" prefHeight="25.0" prefWidth="149.0" text="Change password">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <effect>
+                        <InnerShadow choke="0.15" color="#0c135b" height="26.93" radius="16.6725" width="41.76" />
+                    </effect>
+                </Button>
+                <Label layoutX="41.0" layoutY="403.0" text="Don't you have an account?" textFill="#f8f5f5">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -97,7 +105,7 @@
                         <Reflection />
                     </effect>
                 </ImageView>
-                <Label layoutX="48.0" layoutY="421.0" prefHeight="17.0" prefWidth="122.0" text="Register now!" textFill="#f8f7f7">
+                <Label layoutX="41.0" layoutY="434.0" prefHeight="17.0" prefWidth="122.0" text="Register now!" textFill="#f8f7f7">
                     <font>
                         <Font size="15.0" />
                     </font>
@@ -107,6 +115,11 @@
                         <SepiaTone />
                     </effect>
                 </PointLight>
+                <Label layoutX="113.0" layoutY="296.0" text="Forgot your password?" textFill="#f8f5f5">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
             </children>
         </AnchorPane>
     </children>

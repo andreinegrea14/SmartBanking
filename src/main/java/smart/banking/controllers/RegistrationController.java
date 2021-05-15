@@ -37,6 +37,18 @@ public class RegistrationController {
     @FXML
     public void handleRegisterAction() {
         try {
+            if(usernameField.getText() == null || usernameField.getText().isEmpty()) {
+                registrationMessage.setText("Please introduce an username!");
+                return;
+            }
+            if(passwordField.getText() == null || passwordField.getText().isEmpty()){
+                registrationMessage.setText("Please introduce a password!");
+                return;
+            }
+            if(role.getValue() == null || role.getItems().isEmpty()){
+                registrationMessage.setText("Please select your role!");
+                return;
+            }
             UserService.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
             registrationMessage.setText("Account created successfully!");
         } catch (UsernameAlreadyExists e) {

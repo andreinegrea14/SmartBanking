@@ -40,6 +40,15 @@ public class LoginController {
         window.setTitle("Register");
         window.show();
     }
+
+    public void openChangePassword(ActionEvent event) throws IOException {
+        Parent registerWindow = FXMLLoader.load(ClientController.class.getResource("/changePassword.fxml"));
+        Scene registerScene = new Scene(registerWindow,600, 525);
+        Stage window =  ((Stage) (((Node) event.getSource()).getScene().getWindow()));
+        window.setScene(registerScene);
+        window.setTitle("Change Password");
+        window.show();
+    }
     public void login() throws Exception {
         if(usernameInput.getText() == null || usernameInput.getText().isEmpty()) {
             loginMessage.setText("Please introduce an username!");
