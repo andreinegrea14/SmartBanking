@@ -41,7 +41,7 @@ public class UserService {
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
@@ -61,6 +61,14 @@ public class UserService {
         return md;
     }
 
+    public static User getUser(String username) {
+        for (User user : userRepository.find())
+            if (Objects.equals(username, user.getUsername())) {
+                return user;
+            }
+        return new User("Username");
+    }
+
     public static int checkUsers(String username,String password) {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername())
@@ -73,7 +81,16 @@ public class UserService {
                 return 2;
         }
         return 0;
+    }
 
+    public static void addPassword(String username, String password, String role) {
+        for (User user : userRepository.find()) {
+            if (username.equals(user.getUsername())) {
+                user.setPassword(UserService.encodePassword(username,password));
+                userRepository.update(user);
+
+            }
+        }
     }
 }
 
