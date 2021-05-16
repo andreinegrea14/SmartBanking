@@ -15,6 +15,7 @@ Run the project with gradle by using `gradlew run` command in the Intellij termi
 
 ## Issue Tracking
 In order to obtain the full Agile Workflow we implemented, the evaluation team can find our project issue tracking flow on Jira by clicking this [link](https://andreinegrea.atlassian.net/jira/software/c/projects/SB/issues/).
+Also, you can find our project presentation [here](https://docs.google.com/presentation/d/18ANrd-GpT84OR28h-SJtpiwAlM4fZ3y-bRnRmgLk2HI/edit?fbclid=IwAR2dPFq1Hq3jrlPDouxXc7KKZAEedO2nxmroWy59XdsPUXSyjn5F5qk76TM#slide=id.p).
 
 ## Application Description
 ### Registration & Login
