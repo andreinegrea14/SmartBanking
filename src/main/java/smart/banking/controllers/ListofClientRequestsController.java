@@ -39,7 +39,7 @@ public class ListofClientRequestsController {
     }
 
     public void showMessages() {
-        messageString = "Requests list";
+        messageString = "Message";
         Text text = new Text(30,80,messageString);
         Font newFont = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
         text.setFill(Color.valueOf("#000000"));

@@ -102,10 +102,10 @@
                         <Image url="@client.jpg" />
                     </image>
                 </ImageView>
-                        <ListView fx:id="transactionList" layoutY="84.0" opacity="0.75" prefHeight="516.0" prefWidth="239.0" styleClass="listview1" stylesheets="@style.css" />
-                        <ListView fx:id="userList" layoutX="467.0" layoutY="84.0" opacity="0.75" prefHeight="516.0" prefWidth="228.0" styleClass="listview1" stylesheets="@style.css" />
-                        <ListView fx:id="status" layoutX="239.0" layoutY="84.0" opacity="0.76" prefHeight="516.0" prefWidth="228.0" styleClass="listview1" stylesheets="@style.css" />
-                <Label layoutX="24.0" layoutY="14.0" prefHeight="48.0" prefWidth="393.0" text="See transactions" textFill="WHITE">
+                <ListView fx:id="transactionList" layoutY="84.0" opacity="0.75" prefHeight="516.0" prefWidth="239.0" styleClass="listview1" stylesheets="@style.css" />
+                <ListView fx:id="userList" layoutX="467.0" layoutY="84.0" opacity="0.75" prefHeight="516.0" prefWidth="228.0" styleClass="listview1" stylesheets="@style.css" />
+                <ListView fx:id="status" layoutX="239.0" layoutY="84.0" opacity="0.76" prefHeight="516.0" prefWidth="228.0" styleClass="listview1" stylesheets="@style.css" />
+                <Label layoutX="24.0" layoutY="14.0" prefHeight="48.0" prefWidth="393.0" text="Transactions list" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="26.0" />
                     </font>
