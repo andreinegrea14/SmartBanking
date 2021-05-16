@@ -30,7 +30,7 @@
                         <Font name="Cambria Bold" size="40.0" />
                     </font>
                 </Label>
-                <Button layoutX="38.0" layoutY="465.0" mnemonicParsing="false" onAction="#openRegister" opacity="0.74" prefHeight="39.0" prefWidth="134.0" text="Register">
+                <Button id="register" layoutX="38.0" layoutY="465.0" mnemonicParsing="false" onAction="#openRegister" opacity="0.74" prefHeight="39.0" prefWidth="134.0" text="Register">
                     <font>
                         <Font size="21.0" />
                     </font>
@@ -52,7 +52,7 @@
                         <Font size="15.0" />
                     </font>
                 </Label>
-                <TextField fx:id="usernameInput" layoutX="117.0" layoutY="168.0" opacity="0.63">
+                <TextField fx:id="usernameInput" id ="username" layoutX="117.0" layoutY="168.0" opacity="0.63">
                     <effect>
                         <InnerShadow choke="0.08" color="#010236" height="29.9" radius="27.052500000000002" width="80.31" />
                     </effect></TextField>
@@ -61,14 +61,13 @@
                         <Font size="15.0" />
                     </font>
                 </Label>
-                <PasswordField fx:id="passwordInput" layoutX="117.0" layoutY="243.0" opacity="0.57">
+                <PasswordField fx:id="passwordInput" id = "password" layoutX="117.0" layoutY="243.0" opacity="0.57">
                     <effect>
                         <InnerShadow choke="0.16" color="#080b40" height="32.86" radius="24.085" width="65.48" />
                     </effect></PasswordField>
 
 
-
-                <Button layoutX="365.0" layoutY="195.0" mnemonicParsing="false" onAction="#login" opacity="0.74" prefHeight="39.0" prefWidth="114.0" text="Log in">
+                <Button id="login" layoutX="365.0" layoutY="195.0" mnemonicParsing="false" onAction="#login" opacity="0.74" prefHeight="39.0" prefWidth="114.0" text="Log in">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -76,7 +75,7 @@
                         <InnerShadow choke="0.15" color="#0c135b" height="26.93" radius="16.6725" width="41.76" />
                     </effect>
                 </Button>
-                <Button layoutX="117.0" layoutY="331.0" mnemonicParsing="false" onAction="#openChangePassword" opacity="0.74" prefHeight="25.0" prefWidth="149.0" text="Change password">
+                <Button id="changePassword" layoutX="117.0" layoutY="331.0" mnemonicParsing="false" onAction="#openChangePassword" opacity="0.74" prefHeight="25.0" prefWidth="149.0" text="Change password">
                     <font>
                         <Font size="16.0" />
                     </font>

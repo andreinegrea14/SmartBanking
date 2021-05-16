@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import smart.banking.exceptions.UsernameAlreadyExists;
+import smart.banking.model.Client;
 import smart.banking.model.User;
 import smart.banking.services.ClientService;
 import smart.banking.services.UserService;
@@ -41,6 +42,10 @@ public class ChangePasswordController {
             error.setText("Please introduce an username!");
             return;
         }
+        if (!UserService.getUser(usernameInput.getText()).getUsername().equals(usernameInput.getText())) {
+            error.setText("Please introduce a valid username!");
+            return;
+        }
         if(newPassword.getText() == null || newPassword.getText().isEmpty()){
             error.setText("Please introduce a password!");
             return;
@@ -54,7 +59,7 @@ public class ChangePasswordController {
             }
             else {
                 UserService.addPassword(usernameInput.getText(), newPassword.getText(), UserService.getUser(usernameInput.getText()).getRole());
-                error.setText("Your password was succesfully changed!");
+                error.setText("Your password was successfully changed!");
             }
 
         }
