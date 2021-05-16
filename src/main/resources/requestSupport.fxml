@@ -24,7 +24,7 @@
                         <Insets />
                     </VBox.margin>
                 </JFXButton>
-                <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="70.0" prefHeight="0.0" prefWidth="177.0" styleClass="button_1" stylesheets="@style.css" text="Check balance" textFill="#f5f5f5" onAction="#openCheckBalance">
+                <JFXButton id = "checkBalance" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="70.0" prefHeight="0.0" prefWidth="177.0" styleClass="button_1" stylesheets="@style.css" text="Check balance" textFill="#f5f5f5" onAction="#openCheckBalance">
                     <font>
                         <Font name="Consolas Bold" size="14.0" />
                     </font>
@@ -39,7 +39,7 @@
                         <Insets />
                     </VBox.margin>
                 </JFXButton>
-                <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="163.0" onAction="#transferFundsOnPress" prefHeight="97.0" prefWidth="177.0" styleClass="button_1" stylesheets="@style.css" text="Transfer funds" textFill="#f5f5f5" >
+                <JFXButton id = "transferFunds" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="163.0" onAction="#transferFundsOnPress" prefHeight="97.0" prefWidth="177.0" styleClass="button_1" stylesheets="@style.css" text="Transfer funds" textFill="#f5f5f5" >
                     <font>
                         <Font name="Consolas Bold" size="14.0" />
                     </font>
@@ -54,7 +54,7 @@
                         <Insets />
                     </VBox.margin>
                 </JFXButton>
-                <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="256.0" onAction="#seeTransactions" prefHeight="99.0" prefWidth="172.0" styleClass="button_1" stylesheets="@style.css" text="See transactions" textFill="#f5f5f5">
+                <JFXButton id = "seeTransactions" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="256.0" onAction="#seeTransactions" prefHeight="99.0" prefWidth="172.0" styleClass="button_1" stylesheets="@style.css" text="See transactions" textFill="#f5f5f5">
                     <font>
                         <Font name="Consolas Bold" size="14.0" />
                     </font>
@@ -81,7 +81,7 @@
                         </ImageView>
                     </graphic>
                 </JFXButton>
-                <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#handleLogout" prefHeight="101.0" prefWidth="173.0" styleClass="button_1" stylesheets="@style.css" text="Logout" textFill="#f5f5f5">
+                <JFXButton id ="logout" alignment="BOTTOM_CENTER" contentDisplay="TOP" onAction="#handleLogout" prefHeight="101.0" prefWidth="173.0" styleClass="button_1" stylesheets="@style.css" text="Logout" textFill="#f5f5f5">
                     <font>
                         <Font name="Consolas Bold" size="14.0" />
                     </font>
@@ -102,13 +102,13 @@
                         <Image url="@client.jpg" />
                     </image>
                 </ImageView>
-                <Button layoutX="393.0" layoutY="184.0" mnemonicParsing="false" onAction="#openListMenu" opacity="0.61" text="See all requests" textFill="WHITE">
+                <Button id = "SeeAllRequests" layoutX="393.0" layoutY="184.0" mnemonicParsing="false" onAction="#openListMenu" opacity="0.61" text="See all requests" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Button>
                 <TextField fx:id="message" layoutX="43.0" layoutY="121.0" prefHeight="109.0" prefWidth="249.0" styleClass="text-field-support" stylesheets="@style.css" />
-                <Button layoutX="393.0" layoutY="127.0" mnemonicParsing="false" onAction="#sendMessage" opacity="0.63" prefHeight="31.0" prefWidth="155.0" text="Send request" textFill="WHITE">
+                <Button id="sendRequest" layoutX="393.0" layoutY="127.0" mnemonicParsing="false" onAction="#sendMessage" opacity="0.63" prefHeight="31.0" prefWidth="155.0" text="Send request" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>

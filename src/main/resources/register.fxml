@@ -21,7 +21,7 @@
                         <Image url="@register.jpg" />
                     </image>
                 </ImageView>
-                <Button layoutX="57.0" layoutY="246.0" onAction="#goBack" opacity="0.86" prefHeight="31.0" prefWidth="124.0" text="Go to login">
+                <Button layoutX="57.0" id="goBack" layoutY="246.0" onAction="#goBack" opacity="0.86" prefHeight="31.0" prefWidth="124.0" text="Go to login">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
@@ -35,7 +35,7 @@
                   <Font size="14.0" />
                </font></Text>
 
-                <ChoiceBox fx:id="role" layoutX="53.0" layoutY="138.0" opacity="0.63" prefHeight="25.0" prefWidth="176.0">
+                <ChoiceBox fx:id="role" id="role" layoutX="53.0" layoutY="138.0" opacity="0.63" prefHeight="25.0" prefWidth="176.0">
                     <effect>
                         <InnerShadow choke="0.38" color="#24268a" radius="15.93" width="44.72">
                             <input>
@@ -49,7 +49,7 @@
                         <Font name="System Bold" size="16.0" />
                     </font></Label>
 
-                <TextField fx:id="usernameField" layoutX="53.0" layoutY="1.0" opacity="0.51">
+                <TextField fx:id="usernameField" id="username" layoutX="53.0" layoutY="1.0" opacity="0.51">
                     <effect>
                         <InnerShadow choke="0.02" color="#30328d" height="29.65" radius="9.8775" width="11.86" />
                     </effect></TextField>
@@ -66,7 +66,7 @@
                     </font>
                 </Label>
 
-                <PasswordField fx:id="passwordField" layoutX="53.0" layoutY="78.0" opacity="0.48" prefHeight="25.0" prefWidth="149.0">
+                <PasswordField fx:id="passwordField" id="password" layoutX="53.0" layoutY="78.0" opacity="0.48" prefHeight="25.0" prefWidth="149.0">
                     <effect>
                         <InnerShadow choke="0.33" color="#1d5dab" height="29.9" radius="14.45" width="29.9" />
                     </effect></PasswordField>
@@ -89,7 +89,7 @@
                         </Lighting>
                     </effect>
                 </Text>
-                <Button layoutX="244.0" layoutY="75.0" onAction="#handleRegisterAction" opacity="0.66" prefHeight="31.0" prefWidth="124.0" text="Register">
+                <Button id="register" layoutX="244.0" layoutY="75.0" onAction="#handleRegisterAction" opacity="0.66" prefHeight="31.0" prefWidth="124.0" text="Register">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>

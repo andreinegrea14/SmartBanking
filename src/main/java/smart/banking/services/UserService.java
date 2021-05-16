@@ -20,10 +20,12 @@ public class UserService {
 
     private static ObjectRepository<User> userRepository;
     private static List<User> users;
+    private static Nitrite database;
 
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("smart-banking.db").toFile())
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
+                .filePath(getPathToFile("userDatabase.db").toFile())
                 .openOrCreate("test", "test");
 
         userRepository = database.getRepository(User.class);
@@ -34,7 +36,7 @@ public class UserService {
         userRepository.insert(new User(username, encodePassword(username, password), role));
     }
 
-    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExists {
+    static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExists {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExists(username);
@@ -69,6 +71,10 @@ public class UserService {
         return new User("Username");
     }
 
+    public static List<User> getAllUsers() {
+        return userRepository.find().toList();
+    }
+
     public static int checkUsers(String username,String password) {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername())
@@ -91,6 +97,10 @@ public class UserService {
 
             }
         }
+    }
+    public static void close() {
+        userRepository.close();
+        database.close();
     }
 }
 

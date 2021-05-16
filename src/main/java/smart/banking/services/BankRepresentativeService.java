@@ -1,27 +1,30 @@
 package smart.banking.services;
 import org.dizitart.no2.exceptions.UniqueConstraintException;
+import smart.banking.exceptions.BankRepresentativeAlreadyExists;
+import smart.banking.exceptions.ClientAlreadyExist;
 import smart.banking.model.BankRepresentative;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+import smart.banking.model.Client;
+
+import java.util.List;
 import java.util.Objects;
 import static smart.banking.services.FileSystemService.getPathToFile3;
 public class BankRepresentativeService {
 
     private static ObjectRepository<BankRepresentative> bankRepresentativeObjectRepository;
+    private static Nitrite database;
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile3("bankrepresentatives.db").toFile())
+        database = Nitrite.builder()
+                .filePath(getPathToFile3("bankrepresentativesDatabase.db").toFile())
                 .openOrCreate("test", "test");
 
         bankRepresentativeObjectRepository = database.getRepository(BankRepresentative.class);
     }
 
-    public static void addBankRepresentative(String username) throws UniqueConstraintException {
-        try {
-            bankRepresentativeObjectRepository.insert(new BankRepresentative(username));
-        } catch(UniqueConstraintException e) {
-            System.out.println(e.getMessage());
-        }
+    public static void addBankRepresentative(String username) throws BankRepresentativeAlreadyExists {
+        checkBankRepresentativeAlreadyExists(username);
+        bankRepresentativeObjectRepository.insert(new BankRepresentative(username));
     }
 
     public static BankRepresentative getBankRepresentative(String username){
@@ -53,5 +56,19 @@ public class BankRepresentativeService {
             }
         }
         return 0;
+    }
+    public static void close() {
+        bankRepresentativeObjectRepository.close();
+        database.close();
+    }
+    public static List<BankRepresentative> getAllBankRepresentatives() {
+        return bankRepresentativeObjectRepository.find().toList();
+    }
+
+    public static void checkBankRepresentativeAlreadyExists(String username) throws BankRepresentativeAlreadyExists {
+        for (BankRepresentative bankRepresentative : bankRepresentativeObjectRepository.find()) {
+            if (Objects.equals(username, bankRepresentative.getUsername()))
+                throw new BankRepresentativeAlreadyExists(username);
+        }
     }
 }

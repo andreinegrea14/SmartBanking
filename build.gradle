@@ -20,6 +20,13 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
 
     compile 'com.jfoenix:jfoenix:9.0.10'
+
+    testCompile 'org.testfx:testfx-core:4.0.16-alpha'
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.5.1'
+    testCompile 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
+    testCompile 'org.testfx:testfx-junit5:4.0.16-alpha'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
+    testCompile group: 'commons-io', name: 'commons-io', version: '2.8.0'
 }
 
 test {

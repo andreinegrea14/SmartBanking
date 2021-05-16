@@ -1,9 +1,14 @@
 package smart.banking.services;
 import org.dizitart.no2.exceptions.UniqueConstraintException;
+import smart.banking.exceptions.ClientAlreadyExist;
+import smart.banking.exceptions.UsernameAlreadyExists;
 import smart.banking.model.BankRepresentative;
 import smart.banking.model.Client;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+import smart.banking.model.User;
+
+import java.util.List;
 import java.util.Objects;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -13,20 +18,18 @@ public class ClientService {
 
     private static ObjectRepository<Client> clientObjectRepository;
     private static DecimalFormat formatTwoDecimals = new DecimalFormat("#.##");
+    private static Nitrite database;
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile2("clienti3.db").toFile())
+        database = Nitrite.builder()
+                .filePath(getPathToFile2("clientsDatabase.db").toFile())
                 .openOrCreate("test", "test");
 
         clientObjectRepository = database.getRepository(Client.class);
     }
 
-    public static void addClient(String username, double funds) throws UniqueConstraintException {
-        try {
+    public static void addClient(String username, double funds) throws ClientAlreadyExist {
+        checkClientAlreadyExists(username);
             clientObjectRepository.insert(new Client(username, funds));
-        } catch(UniqueConstraintException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     public static int getContorClient() {
@@ -142,6 +145,19 @@ public class ClientService {
             }
         }
         return 0;
+    }
+    public static void close() {
+        clientObjectRepository.close();
+        database.close();
+    }
+    public static List<Client> getAllClients() {
+        return clientObjectRepository.find().toList();
+    }
 
+    public static void checkClientAlreadyExists(String username) throws ClientAlreadyExist {
+        for (Client client : clientObjectRepository.find()) {
+            if (Objects.equals(username, client.getUsername()))
+                throw new ClientAlreadyExist(username);
+        }
     }
 }

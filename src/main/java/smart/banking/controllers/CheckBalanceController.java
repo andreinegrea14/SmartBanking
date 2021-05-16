@@ -34,6 +34,7 @@ public class CheckBalanceController {
     public void FundsToBeAdded() throws NumberFormatException{
         try {
             if (fundsField.getText() == null || fundsField.getText().isEmpty() || Double.parseDouble(fundsField.getText()) == 0) {
+                System.out.println("Total amount: " +String.valueOf(ClientService.getFunds(LoginController.client)) + " lei");
                 clientMessage.setText("Total amount: " +String.valueOf(ClientService.getFunds(LoginController.client)) + " lei");
                 return;
             }
