@@ -14,7 +14,7 @@ To set up and run the project locally on your machine, please follow the next st
 Run the project with gradle by using `gradlew run` command in the Intellij terminal.
 
 ## Issue Tracking
-In order to obtain the full Agile Workflow we implemented, the evaluation team can find our project issue tracking flow on Jira by clicking this [link](https://andreinegrea.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=SB).
+In order to obtain the full Agile Workflow we implemented, the evaluation team can find our project issue tracking flow on Jira by clicking this [link](https://andreinegrea.atlassian.net/jira/software/c/projects/SB/issues/).
 
 ## Application Description
 ### Registration & Login
@@ -26,6 +26,7 @@ The app lets the user to register & login via two roles:
 The user also needs to enter the credentials he want to use: username and password.
 
 <img src="docs/login.png"/>
+
 ### Forgotten Password
 The user is able to change his password if he forgot his password or if he just wants to change it.
 
