@@ -45,7 +45,7 @@ public class SeeTransactionsController {
     }
 
     public void showTransactions() {
-        transactionString = "Transactions list";
+        transactionString = "Amount";
         Text text = new Text(30,80,transactionString);
         Font newFont = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
         text.setFill(Color.valueOf("#000000"));

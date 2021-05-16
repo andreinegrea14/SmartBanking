@@ -80,85 +80,85 @@ public class ListofBankRequestsController {
     }
 
     public void showMessagesStatusesAndReviews() {
-            messageS= "Messages";
-            statusS = "Status";
-            reviewS = "Review";
+        messageS= "Messages";
+        statusS = "Status";
+        reviewS = "Review";
 
-            Text text = new Text(30,80,messageS);
-            Font newFont = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
-            text.setFill(Color.valueOf("#000000"));
-            text.setFont(newFont);
-            Text text1 = new Text(30,80, statusS);
-            Font newFont1 = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
-            text1.setFill(Color.valueOf("#000000"));
-            text1.setFont(newFont1);
-            Text text2 = new Text(30,80, reviewS);
-            Font newFont2 = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
-            text2.setFill(Color.valueOf("#000000"));
-            text2.setFont(newFont2);
-            messages.getItems().clear();
-            statusList.getItems().clear();
-            reviewList.getItems().clear();
-            messages.getItems().add(text);
-            statusList.getItems().add(text1);
-            reviewList.getItems().add(text2);
+        Text text = new Text(30,80,messageS);
+        Font newFont = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
+        text.setFill(Color.valueOf("#000000"));
+        text.setFont(newFont);
+        Text text1 = new Text(30,80, statusS);
+        Font newFont1 = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
+        text1.setFill(Color.valueOf("#000000"));
+        text1.setFont(newFont1);
+        Text text2 = new Text(30,80, reviewS);
+        Font newFont2 = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
+        text2.setFill(Color.valueOf("#000000"));
+        text2.setFont(newFont2);
+        messages.getItems().clear();
+        statusList.getItems().clear();
+        reviewList.getItems().clear();
+        messages.getItems().add(text);
+        statusList.getItems().add(text1);
+        reviewList.getItems().add(text2);
 
-                for (int i = 0; i < BankRepresentativeService.getClientsContor(LoginController.bankRepresentative); i++) {
-                    if (BankRepresentativeService.getBankRepresentative(LoginController.bankRepresentative).getClients()[i] == clientList.getSelectionModel().getSelectedItem()) {
-                        for (int j = 0; j < ClientService.getContorClient(); j++) {
-                            messages.getItems().clear();
-                            messages.getItems().add(text);
-                            statusList.getItems().clear();
-                            statusList.getItems().add(text1);
-                            reviewList.getItems().clear();
-                            reviewList.getItems().add(text2);
-                            for (int k = 0; k < ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getContor(); k++) {
-                                if (ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getMessages()[k] == null || ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getMessages()[k].isEmpty()) {
-                                    messages.getItems().add("Empty request");
-                                } else {
-                                    messages.getItems().add(ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getMessages()[k]);
-                                }
-                            }
-                            for (int l = 0; l < ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getStatusContor(); l++) {
-                                if (ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getStatusReview()[l] == null) {
-                                    String statuses = "UNREVIEWED";
-                                    Text text3 = new Text(30,80, statuses);
-                                    Font newFont3 = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
-                                    text3.setFill(Color.valueOf("#CB4335"));
-                                    text3.setFont(newFont3);
-                                    statusList.getItems().add(text3);
-                                } else if (ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getStatusReview()[l].equals("Accepted")) {
-                                    String statuses = "REVIEWED";
-                                    Text text3 = new Text(30,80, statuses);
-                                    Font newFont3 = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
-                                    text3.setFill(Color.valueOf("#27AE60"));
-                                    text3.setFont(newFont3);
-                                    statusList.getItems().add(text3);
-                                } else if (ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getStatusReview()[l].equals("Rejected")) {
-                                    String statuses = "REVIEWED";
-                                    Text text3 = new Text(30,80, statuses);
-                                    Font newFont3 = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
-                                    text3.setFill(Color.valueOf("#27AE60"));
-                                    text3.setFont(newFont3);
-                                    statusList.getItems().add(text3);
-                                } else {
-                                    String statuses = "UNREVIEWED";
-                                    Text text3 = new Text(30,80, statuses);
-                                    Font newFont3 = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
-                                    text3.setFill(Color.valueOf("#27AE60"));
-                                    text3.setFont(newFont3);
-                                    statusList.getItems().add(text3);
+        for (int i = 0; i < BankRepresentativeService.getClientsContor(LoginController.bankRepresentative); i++) {
+            if (BankRepresentativeService.getBankRepresentative(LoginController.bankRepresentative).getClients()[i] == clientList.getSelectionModel().getSelectedItem()) {
+                for (int j = 0; j < ClientService.getContorClient(); j++) {
+                    messages.getItems().clear();
+                    messages.getItems().add(text);
+                    statusList.getItems().clear();
+                    statusList.getItems().add(text1);
+                    reviewList.getItems().clear();
+                    reviewList.getItems().add(text2);
+                    for (int k = 0; k < ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getContor(); k++) {
+                        if (ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getMessages()[k] == null || ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getMessages()[k].isEmpty()) {
+                            messages.getItems().add("Empty request");
+                        } else {
+                            messages.getItems().add(ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getMessages()[k]);
+                        }
+                    }
+                    for (int l = 0; l < ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getStatusContor(); l++) {
+                        if (ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getStatusReview()[l] == null) {
+                            String statuses = "UNREVIEWED";
+                            Text text3 = new Text(30,80, statuses);
+                            Font newFont3 = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
+                            text3.setFill(Color.valueOf("#CB4335"));
+                            text3.setFont(newFont3);
+                            statusList.getItems().add(text3);
+                        } else if (ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getStatusReview()[l].equals("Accepted")) {
+                            String statuses = "REVIEWED";
+                            Text text3 = new Text(30,80, statuses);
+                            Font newFont3 = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
+                            text3.setFill(Color.valueOf("#27AE60"));
+                            text3.setFont(newFont3);
+                            statusList.getItems().add(text3);
+                        } else if (ClientService.getClient(clientList.getSelectionModel().getSelectedItem().toString()).getStatusReview()[l].equals("Rejected")) {
+                            String statuses = "REVIEWED";
+                            Text text3 = new Text(30,80, statuses);
+                            Font newFont3 = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
+                            text3.setFill(Color.valueOf("#27AE60"));
+                            text3.setFont(newFont3);
+                            statusList.getItems().add(text3);
+                        } else {
+                            String statuses = "UNREVIEWED";
+                            Text text3 = new Text(30,80, statuses);
+                            Font newFont3 = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
+                            text3.setFill(Color.valueOf("#27AE60"));
+                            text3.setFont(newFont3);
+                            statusList.getItems().add(text3);
 
-                                }
-                            }
                         }
                     }
                 }
-            if (clientList.getSelectionModel().getSelectedItem().toString() == "" || clientList.getSelectionModel().getSelectedItem().toString() == "Client list") {
-                messages.getItems().clear();
-                statusList.getItems().clear();
-                reviewList.getItems().clear();
             }
+        }
+        if (clientList.getSelectionModel().getSelectedItem().toString() == "" || clientList.getSelectionModel().getSelectedItem().toString() == "Client list") {
+            messages.getItems().clear();
+            statusList.getItems().clear();
+            reviewList.getItems().clear();
+        }
     }
 
 
@@ -173,7 +173,7 @@ public class ListofBankRequestsController {
     }
 
     public void showClients() {
-        clientString = "Requests list";
+        clientString = "Client";
         Text text = new Text(30,80, clientString);
         Font newFont = Font.font("Calibri", FontWeight.BOLD, FontPosture.REGULAR,14);
         text.setFill(Color.valueOf("#000000"));
